@@ -4,4 +4,4 @@ Opinionated quickstart Create React App template with Redux, enzyme and custom e
 
 ## Usage
 
-``npx create-react-app %PROJECT_NAME% --template morewings-quickstart-redux``
+``npx create-react-app %PROJECT_NAME% --template quickstart-redux``
