@@ -1,7 +1,24 @@
 {
-  "name": "morewings-quickstart-template",
+  "name": "cra-template-morewings-quickstart-redux-eslint-enzyme",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "description": "Opinionated quickstart template with Redux, enzyme and custom eslint configuration",
+  "main": "template.json",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "enzyme",
+    "eslint",
+    "redux"
+  ],
+  "files": [
+    "template",
+    "template.json"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
