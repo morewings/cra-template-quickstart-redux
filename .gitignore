@@ -11,6 +11,10 @@
 # template
 /template/src
 /template/public
+/template/.env
+/template/.eslintrc
+/template/.prettierrc
+/template/jsconfig.json
 
 # production
 /build
