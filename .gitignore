@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# template
+/template/src
+/template/public
+
 # production
 /build
 
