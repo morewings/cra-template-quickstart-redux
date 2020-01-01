@@ -1,0 +1,27 @@
+language: node_js
+
+node_js: "10"
+
+cache:
+  directories:
+    - node_modules
+
+script:
+  - yarn lint
+  - yarn test
+
+jobs:
+  include:
+    - stage: npm release
+      if: tag IS present
+      node_js: "10"
+      script: yarn compile
+      before_deploy:
+        - cd dist
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true
+        on:
+          tags: true
