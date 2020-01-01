@@ -16,7 +16,7 @@ jobs:
     - stage: npm release
       if: tag IS present
       node_js: "10"
-#      script: yarn prepublish
+      script: yarn test
       deploy:
         edge: true
         provider: npm

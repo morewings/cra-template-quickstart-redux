@@ -16,38 +16,24 @@ exports[`renders without crashing 1`] = `
     <div
       className="App"
     >
-      <Connect(Sample)>
-        <Sample
-          increment={0}
-          sample={[Function]}
-        >
+      <Counter>
+        <div>
           <div>
-            <div>
-              Hello from sample component!
-            </div>
-            <button
-              onClick={[Function]}
-              type="button"
-            >
-              Click me!
-            </button>
-            <div>
-              You clicked: 
-              0
-               times.
-            </div>
+            Counter component
           </div>
-        </Sample>
-      </Connect(Sample)>
-      <Wrapper>
-        <Sample
-          injectedProp="someStateOrInstanceMethod"
-        >
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Click me!
+          </button>
           <div>
-            Hello I am wrapped!
+            You clicked: 
+            0
+             times.
           </div>
-        </Sample>
-      </Wrapper>
+        </div>
+      </Counter>
     </div>
   </App>
 </Provider>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Sample from 'components/Sample/Sample';
+import Counter from './Counter';
 
 const sample = jest.fn();
 const defaultProps = {
@@ -14,7 +14,7 @@ describe('src > components > Sample.js', () => {
     sample.mockClear();
   });
   it('renders without crashing', () => {
-    const wrapper = shallow(<Sample {...defaultProps} />);
+    const wrapper = shallow(<Counter {...defaultProps} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
