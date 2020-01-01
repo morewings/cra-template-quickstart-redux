@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <App>
+    <div
+      className="App"
+    >
+      <Connect(Sample)>
+        <Sample
+          increment={0}
+          sample={[Function]}
+        >
+          <div>
+            <div>
+              Hello from sample component!
+            </div>
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              Click me!
+            </button>
+            <div>
+              You clicked: 
+              0
+               times.
+            </div>
+          </div>
+        </Sample>
+      </Connect(Sample)>
+      <Wrapper>
+        <Sample
+          injectedProp="someStateOrInstanceMethod"
+        >
+          <div>
+            Hello I am wrapped!
+          </div>
+        </Sample>
+      </Wrapper>
+    </div>
+  </App>
+</Provider>
+`;

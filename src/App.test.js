@@ -1,9 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import {mount} from 'enzyme';
+import toJson from 'enzyme-to-json';
+import {Provider} from 'react-redux';
+import store from 'store';
+import App from 'App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders without crashing', () => {
+  const wrapper = mount(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  expect(toJson(wrapper)).toMatchSnapshot();
 });
