@@ -1,5 +1,7 @@
 language: node_js
 
+version: 1.0
+
 node_js: "10"
 
 cache:
@@ -16,6 +18,7 @@ jobs:
       node_js: "10"
       script: yarn prepublish
       deploy:
+        edge: true
         provider: npm
         email: "$NPM_EMAIL"
         api_key: "$NPM_TOKEN"
