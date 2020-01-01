@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=10"
   },
-  "description": "Opinionated quickstart template with Redux, enzyme and custom eslint configuration",
+  "description": "Opinionated quickstart Create React App template with Redux, enzyme and custom eslint configuration",
   "main": "template.json",
   "keywords": [
     "react",
@@ -49,7 +49,8 @@
     "testpub": "node -v",
     "delete-files": "rm -rf ./template/public && rm -rf ./template/src",
     "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public",
-    "pretestpub": "yarn delete-files && yarn copy-files"
+    "pretestpub": "yarn delete-files && yarn copy-files",
+    "prepublish": "yarn delete-files && yarn copy-files"
   },
   "browserslist": {
     "production": [
