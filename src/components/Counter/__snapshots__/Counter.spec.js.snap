@@ -1,38 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src > components > Sample.js renders without crashing 1`] = `
-<ContextProvider
-  value={
+exports[`src > components > Counter renders without crashing 1`] = `
+<Provider
+  store={
     Object {
-      "store": Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "unsubscribe": null,
-      },
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
     }
   }
 >
-  <Counter
-    increment={0}
-    sample={[MockFunction]}
-  />
-</ContextProvider>
+  <Counter>
+    <div>
+      <div>
+        Counter component
+      </div>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Click me!
+      </button>
+      <div>
+        You clicked: 
+        0
+         times.
+      </div>
+    </div>
+  </Counter>
+</Provider>
 `;

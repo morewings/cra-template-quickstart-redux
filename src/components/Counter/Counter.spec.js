@@ -1,24 +1,15 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import toJson from 'enzyme-to-json';
 import store from 'store';
 import Counter from './Counter';
 
-const sample = jest.fn();
-const defaultProps = {
-  increment: 0,
-  sample,
-};
-
-describe('src > components > Sample.js', () => {
-  beforeEach(() => {
-    sample.mockClear();
-  });
+describe('src > components > Counter', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Provider store={store}>
-        <Counter {...defaultProps} />
+        <Counter />
       </Provider>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
