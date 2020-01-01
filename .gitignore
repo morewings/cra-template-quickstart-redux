@@ -13,6 +13,7 @@
 /template/public
 /template/.env
 /template/.eslintrc
+/template/.nvmrc
 /template/.prettierrc
 /template/jsconfig.json
 
