@@ -1,13 +1,13 @@
-import {SAMPLE} from 'Redux/constants';
+import {CHANGE_COUNTER} from './actionTypes';
 
 const initialState = {
-  increment: 0,
+  value: 0,
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SAMPLE: {
-      return {...state, increment: state.increment + 1};
+    case CHANGE_COUNTER: {
+      return {...state, value: action.payload};
     }
     default: {
       return state;

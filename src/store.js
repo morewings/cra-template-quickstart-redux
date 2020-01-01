@@ -1,5 +1,9 @@
-import {createStore} from 'redux';
-import rootReducer from './Redux/reducers';
+import {combineReducers, createStore} from 'redux';
+import {CounterReducer} from './Redux/counter';
+
+const rootReducer = combineReducers({
+  count: CounterReducer,
+});
 
 const store = createStore(
   rootReducer,
