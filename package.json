@@ -20,6 +20,14 @@
     "template",
     "template.json"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morewings/cra-template-quickstart-redux",
+    "directory": "/"
+  },
+  "bugs": {
+    "url": "https://github.com/morewings/cra-template-quickstart-redux/issues"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
