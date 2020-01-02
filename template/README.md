@@ -32,12 +32,13 @@ This is an extra from template. Lints project files according to eslint rules, s
 
 Same as `yarn lint`, but also fixes errors, when possible. Typical usecase: local development environment, git hooks.
 
-## ESlint configuration
+## Eslint configuration
 
 ## Redux configuration
 
 ## Limitations
 
+## Testing
 
 ## Learn More
 
