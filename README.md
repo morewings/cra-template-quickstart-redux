@@ -16,7 +16,7 @@ Original Create React App documentation available [here](./README_CRA.md)
 
 ## Motivation
 
-I use Create React App pretty much often. But I hate to write same boilerplate code again and again. This template contains test and eslint configurations and boilerplate code required for rapid start of your fabulous project.
+I use Create React App pretty much often. But I hate to write same boilerplate code again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
 
 ## Available Scripts
 
@@ -33,6 +33,14 @@ In the project directory, you can run:
 - `yarn lint`. Lints project files according to eslint rules, see below. Typical use case: continuous integration environments, Travis, CircleCI, etc.
 
 - `yarn fix`. Same as `yarn lint`, but also fixes errors, when possible. Typical use case: local development environment, git hooks.
+
+## Redux configuration
+
+Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample reducer included.
+
+## Git hooks
+
+Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.huskyrc` config.
 
 ## Eslint configuration
 Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Feel free to tweak rules to match your code style.
@@ -84,14 +92,6 @@ Template extends CRA eslint rules with custom set, tailored for reasonable and c
       }
     ]
 ```
-
-## Redux configuration
-
-Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample reducer included.
-
-## Git hooks
-
-Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.huskyrc` config.
 
 ## Testing
 
