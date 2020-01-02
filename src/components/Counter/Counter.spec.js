@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {mount} from 'enzyme';
 import toJson from 'enzyme-to-json';
-import store from 'store';
+import store from '../../store';
 import Counter from './Counter';
 
 describe('src > components > Counter', () => {

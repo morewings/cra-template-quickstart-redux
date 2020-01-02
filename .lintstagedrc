@@ -1,6 +1,6 @@
 {
   "*.js": [
-    "yarn fix",
+    "eslint --fix",
     "git add"
   ]
 }

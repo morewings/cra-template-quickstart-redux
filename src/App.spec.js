@@ -1,8 +1,9 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
-import store from 'store';
-import App from 'App';
+import toJson from 'enzyme-to-json';
+import store from './store';
+import App from './App';
 
 it('renders without crashing', () => {
   const wrapper = mount(
@@ -10,5 +11,5 @@ it('renders without crashing', () => {
       <App />
     </Provider>
   );
-  expect(wrapper).toMatchSnapshot();
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

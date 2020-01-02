@@ -20,4 +20,5 @@ I use Create React App pretty much often. But I hate to write same boilerplate c
 3. Git hooks management provided by `husky` and `lint-staged`. Keep your repo clean.
 4. Snapshot testing available with `enzyme`. Sample tests are included.
 5. Example basic folder structure, to keep your project organised.
-6. All features of the most recent Create React App.
+6. You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. You will love it 💖!
+7. All features of the most recent Create React App.
