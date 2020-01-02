@@ -2,7 +2,7 @@
 [![dependencies Status](https://david-dm.org/morewings/cra-template-quickstart-redux/status.svg)](https://david-dm.org/morewings/cra-template-quickstart-redux)
 [![npm version](https://badge.fury.io/js/cra-template-quickstart-redux.svg)](https://badge.fury.io/js/cra-template-quickstart-redux)
 
-# Custom Create React App template
+# Quickstart Redux Create React App template
 
 Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, enzyme and custom eslint configuration.
 
