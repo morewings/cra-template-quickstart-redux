@@ -57,7 +57,9 @@
     "eject": "react-scripts eject",
     "clean-files": "rm -rf ./template/public && rm -rf ./template/src && rm -f ./template/.env ./template/.eslintrc  ./template/.nvmrc ./template/.prettierrc ./template/jsconfig.json",
     "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .env .eslintrc .nvmrc .prettierrc jsconfig.json template/",
-    "prepublish": "yarn clean-files && yarn copy-files"
+    "prepublish": "yarn clean-files && yarn copy-files",
+    "fix": "eslint --fix ./src/",
+    "lint": "eslint ./src/"
   },
   "browserslist": {
     "production": [

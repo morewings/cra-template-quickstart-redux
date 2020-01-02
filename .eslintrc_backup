@@ -2,7 +2,6 @@
   "extends": [
     "airbnb",
     "react-app",
-    "plugin:fp/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react"
@@ -12,16 +11,25 @@
     "react/jsx-props-no-spreading": 0,
     "react/no-array-index-key": 1,
     "import/prefer-default-export": 0,
+    "import/no-unresolved": 0,
     "no-confusing-arrow": "error",
     "object-curly-spacing": ["error", "never"],
     "arrow-body-style": ["warn", "as-needed"],
     "prettier/prettier": ["warn"],
+    "import/extensions": 0,
+    "fp/no-delete": 1,
+    "fp/no-let": "warn",
+    "fp/no-loops": 1,
+    "fp/no-mutating-assign": 1,
+    "fp/no-mutating-methods": 1,
     "no-underscore-dangle": [2, { "allow": ["__"] }], // fix Ramda placeholder `R.__`
+    "no-shadow": 0,
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
     "react/destructuring-assignment": "off",
     "react/self-closing-comp": "warn",
-    "react/jsx-fragments": "off"
+    "react/jsx-fragments": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "plugins": [
     "prettier",
