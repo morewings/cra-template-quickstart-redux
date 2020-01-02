@@ -18,6 +18,8 @@
 /template/.nvmrc
 /template/.prettierrc
 /template/jsconfig.json
+/template/README.md
+/template/README_CRA.md
 
 # production
 /build
