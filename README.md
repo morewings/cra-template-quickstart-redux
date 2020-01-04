@@ -34,20 +34,22 @@ In the project directory, you can run:
 
 - `yarn fix`. Same as `yarn lint`, but also fixes errors, when possible. Typical use case: local development environment, git hooks.
 
+Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all confifguration is done by adding config files where possible. Also no `devDependencies`, sorry.
+
 ## Redux configuration
 
-Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample reducer included.
+Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample feature included.
 
 ## Git hooks
 
-Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.huskyrc` config.
+Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.linstagedrc` and `.huskyrc` config files.
 
 ## Testing
 
 Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store).
 
 ## Eslint configuration
-Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Feel free to tweak rules to match your code style.
+Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Feel free to [tweak rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
 
 ```js
     // Allow jsx tags inside .js files.
@@ -99,6 +101,6 @@ Template extends CRA eslint rules with custom set, tailored for reasonable and c
 
 ## Absolute imports
 
-You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. You will love it 💖!
+You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. Configuration is inside `jsconfig.json` file. You will love it 💖!
 
 
