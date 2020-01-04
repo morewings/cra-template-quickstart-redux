@@ -1,7 +1,7 @@
 import React from 'react';
 import Counter from './components/Counter';
 
-const App = props => (
+const App = () => (
   <div className="App">
     <Counter />
   </div>

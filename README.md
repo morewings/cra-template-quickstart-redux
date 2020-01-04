@@ -42,6 +42,10 @@ Template provides basic Redux configuration with [feature based](https://redux.j
 
 Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.huskyrc` config.
 
+## Testing
+
+Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store).
+
 ## Eslint configuration
 Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Feel free to tweak rules to match your code style.
 
@@ -92,10 +96,6 @@ Template extends CRA eslint rules with custom set, tailored for reasonable and c
       }
     ]
 ```
-
-## Testing
-
-Snapshot testing available with [enzyme](https://airbnb.io/enzyme/). Sample tests are included.
 
 ## Absolute imports
 

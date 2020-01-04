@@ -4,11 +4,12 @@ exports[`src > components > Counter renders without crashing 1`] = `
 <Provider
   store={
     Object {
-      "dispatch": [Function],
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
-      Symbol(observable): [Function],
     }
   }
 >
@@ -25,7 +26,9 @@ exports[`src > components > Counter renders without crashing 1`] = `
       </button>
       <div>
         You clicked: 
-        0
+        <strong>
+          6
+        </strong>
          times.
       </div>
     </div>

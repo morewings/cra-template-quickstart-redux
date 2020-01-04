@@ -29,7 +29,9 @@ exports[`renders without crashing 1`] = `
           </button>
           <div>
             You clicked: 
-            0
+            <strong>
+              0
+            </strong>
              times.
           </div>
         </div>
