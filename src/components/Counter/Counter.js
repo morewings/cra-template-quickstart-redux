@@ -4,7 +4,7 @@ import {actionTypes, selectors} from '../../Redux/counter';
 
 const Counter = () => {
   /* Get count value from Redux store. We defined selector (state => state.counter.value) inside counter feature folder, to make component Redux agnostic */
-  const count = useSelector(state => selectors.getCountValue(state));
+  const count = useSelector(selectors.getCountValue);
 
   const dispatch = useDispatch();
 

@@ -6,7 +6,7 @@
 
 Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, enzyme and custom eslint configuration.
 
-Original Create React App documentation available [here](./README_CRA.md)
+Original Create React App README available [here](./README_CRA.md)
 
 ## Usage
 
@@ -16,7 +16,7 @@ Original Create React App documentation available [here](./README_CRA.md)
 
 ## Motivation
 
-I use Create React App pretty much often. But I hate to write same boilerplate code again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
+I use Create React App pretty much often. But I hate to write same boilerplate code to make Redux working and configure some other useful stuff again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
 
 ## Available Scripts
 
@@ -49,7 +49,9 @@ Git hooks management provided by [husky](https://github.com/typicode/husky) and 
 Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store).
 
 ## Eslint configuration
-Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Feel free to [tweak rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
+Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Don't like trailing semicolons? Feel free to [tweak prettier rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
+
+Eslint rules are commented for your convenience feel free to tweak or remove them. No judgement.
 
 ```js
     // Allow jsx tags inside .js files.
@@ -62,12 +64,13 @@ Template extends CRA eslint rules with custom set, tailored for reasonable and c
     "import/prefer-default-export": 0,
     // Force {foo: 'bar'} object literal syntax.
     "object-curly-spacing": ["error", "never"],
-    // Throw warning instead of error. Feel free to choose your favorite 
-    // option https://eslint.org/docs/rules/arrow-body-style
+    // Throw warning instead of error when function is not properly formatted. 
+    // Feel free to choose your favorite option https://eslint.org/docs/rules/arrow-body-style
     "arrow-body-style": ["warn", "as-needed"],
     // Make prettier code formatting suggestions more verbose.
     "prettier/prettier": ["warn"],
-    // Throw warning when <a href="#"> or <a href="javascript:void(0)"> are used. Use <button> instead.
+    // Throw warning when <a href="#"> or <a href="javascript:void(0)"> are used.
+    // Use <button> instead.
     "jsx-a11y/anchor-is-valid": ["warn", {"aspects": ["invalidHref"]}],
     // Allow using (props) => <Component /> and ({propName}) => <Component /> syntax.
     "react/destructuring-assignment": "off",
@@ -77,7 +80,8 @@ Template extends CRA eslint rules with custom set, tailored for reasonable and c
     // which may cause error in reducers etc.
     // No delete operator.
     "fp/no-delete": "warn",
-    // Warning when Object.assign(a, b) used, since it mutates first argument. Object.assign({}, a, b) is ok.
+    // Warning when Object.assign(a, b) used, since it mutates first argument.
+    // Object.assign({}, a, b) is ok.
     "fp/no-mutating-assign": "warn",
     // Warning when mutating method (pop, push, reverse, shift, sort, splice, unshift, etc) 
     // is used. Ramda and lodash/fp are allowed (_.pop, R.push)
