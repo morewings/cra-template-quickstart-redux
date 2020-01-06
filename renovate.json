@@ -10,5 +10,6 @@
   ],
   "npm": {
     "fileMatch": ["(^|/)template.json$"]
-  }
+  },
+  "rangeStrategy": "replace"
 }
