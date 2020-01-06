@@ -7,5 +7,8 @@
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
-  ]
+  ],
+  "npm": {
+    "fileMatch": ["(^|/)template.json$"]
+  }
 }
