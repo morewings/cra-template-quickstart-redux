@@ -4,6 +4,7 @@
   ],
   "packageRules": [
     {
+      "paths": ["./package.json", "./template.json"],
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
