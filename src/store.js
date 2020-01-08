@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from 'redux';
-import {CounterReducer} from './Redux/counter';
+import {CounterReducer} from './features/counter';
 
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({

@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {actionTypes, selectors} from '../../Redux/counter';
+import {actionTypes, selectors} from '../../features/counter';
 
 const Counter = () => {
   /* Get count value from Redux store. We defined selector (state => state.counter.value) inside counter feature folder, to make component Redux agnostic */

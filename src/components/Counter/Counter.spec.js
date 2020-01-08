@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {mount} from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
-import {actionTypes} from '../../Redux/counter';
+import {actionTypes} from '../../features/counter';
 import Counter from './Counter';
 
 describe('src > components > Counter', () => {

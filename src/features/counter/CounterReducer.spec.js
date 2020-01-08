@@ -1,7 +1,7 @@
 import {INCREMENT_COUNTER} from './actionTypes';
 import CounterReducer from './CounterReducer';
 
-describe('Redux > counter > CounterReducer', () => {
+describe('features > counter > CounterReducer', () => {
   /* All test cases are very simple, since Redux reducers are pure functions */
   it('returns initial state, if non matched action is provided', () => {
     const initialState = {
