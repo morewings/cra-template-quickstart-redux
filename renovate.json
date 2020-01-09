@@ -4,14 +4,12 @@
   ],
   "packageRules": [
     {
-      "paths": ["package.json", "template.json"],
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ],
-  "includePaths": ["package.json", "template.json"],
   "npm": {
-    "fileMatch": ["(^|/)template.json$"]
+    "fileMatch": ["^template.json$"]
   },
   "rangeStrategy": "replace",
   "automergeType": "branch"
