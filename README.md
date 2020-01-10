@@ -12,6 +12,8 @@ Original Create React App README available [here](./README_CRA.md)
 ## Usage
 
 ``npx create-react-app %PROJECT_NAME% --template quickstart-redux`` 
+Or
+``yarn create react-app %PROJECT_NAME% --template quickstart-redux``
 
 `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
 
