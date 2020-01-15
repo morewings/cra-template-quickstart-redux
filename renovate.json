@@ -9,7 +9,7 @@
     }
   ],
   "npm": {
-    "fileMatch": ["(^|/)template.json$"],
+    "fileMatch": ["(^|/)template.json$"]
   },
   "rangeStrategy": "replace",
   "automergeType": "branch"
