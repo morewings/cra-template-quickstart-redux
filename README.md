@@ -48,6 +48,7 @@ Template provides basic Redux configuration with [feature based](https://redux.j
 ## Git hooks
 
 Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.linstagedrc` and `.huskyrc` config files.
+Please note you need to [update snapshots](https://jestjs.io/docs/en/snapshot-testing#updating-snapshots) and fix failing tests to be able to commit or push your code.
 
 ## Testing
 
