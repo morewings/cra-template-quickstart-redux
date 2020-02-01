@@ -19,5 +19,10 @@
   "scripts": {
     "fix": "eslint --fix ./src/",
     "lint": "eslint ./src/"
+  },
+  "package": {
+    "jest": {
+      "snapshotSerializers": ["enzyme-to-json/serializer"]
+    }
   }
 }
