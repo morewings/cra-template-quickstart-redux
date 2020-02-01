@@ -19,6 +19,8 @@ Or
 
 `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
 
+**NB!** Due to [recent changes](https://github.com/facebook/create-react-app/issues/8082#issuecomment-570623257) in CRA you need to run ``yarn add husky`` after template finished installing, in order to make **husky pre-commit hooks work**.
+
 ## Motivation
 
 I use Create React App pretty much often. But I hate to write same boilerplate code to make Redux working and configure some other useful stuff again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
@@ -48,7 +50,12 @@ Template provides basic Redux configuration with [feature based](https://redux.j
 ## Git hooks
 
 Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.linstagedrc` and `.huskyrc` config files.
-Please note you need to [update snapshots](https://jestjs.io/docs/en/snapshot-testing#updating-snapshots) and fix failing tests to be able to commit or push your code.
+
+### Caveats
+
+- If pre-commit hooks not work (e. g. your code is not linted after commit), run ``yarn add husky`` in your project folder. This will fix problem introduced in recent CRA update.
+
+- You need to [update snapshots](https://jestjs.io/docs/en/snapshot-testing#updating-snapshots) and fix failing tests to be able to commit or push your code.
 
 ## Testing
 
