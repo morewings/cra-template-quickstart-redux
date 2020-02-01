@@ -3,7 +3,6 @@ import Counter from './components/Counter';
 
 const App = () => (
   <div className="App">
-    test
     <Counter />
   </div>
 );
