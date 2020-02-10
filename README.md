@@ -104,16 +104,18 @@ Eslint rules are commented for your convenience feel free to tweak or remove the
         "allowedObjects": ["_", "R"]
       }
     ],
-    // Warning when mutating operators (++, --, etc) are used, object = {} also.
-    // Proptypes, defaultProps and common.js (module.exports = {}) are ok.
-    "fp/no-mutation": [
-      "warn",
-      {
-        "commonjs": true,
-        "allowThis": true,
-        "exceptions": [{"property": "propTypes"}, {"property": "defaultProps"}]
+    // Warning when mutating operators (++, --, etc) are used, object = {} also. 
+    // `Component.propTypes`, `Component.defaultProps`, common.js (`module.exports`)
+    // and `ref.current` are ok.
+        "fp/no-mutation": [
+          "warn",
+          {
+            "commonjs": true,
+            "allowThis": true,
+            "exceptions": [{"property": "propTypes"}, {"property": "defaultProps"}, {"property": "current"}]
+          }
+        ]
       }
-    ]
 ```
 
 ## Absolute imports
