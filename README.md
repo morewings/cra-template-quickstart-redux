@@ -19,7 +19,6 @@ Or
 
 `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
 
-**NB!** Due to [recent changes](https://github.com/facebook/create-react-app/issues/8498) in CRA you need to run ``git init`` and then ``yarn add husky`` after template finished installing, in order to initialize git repo and make husky pre-commit hooks work.
 
 ## Motivation
 
@@ -49,11 +48,26 @@ Template provides basic Redux configuration with [feature based](https://redux.j
 
 ## Git hooks
 
-Git hooks management provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). In order to keep your repo clean, every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. Before each push tests will run in the same manner. You can change or disable this behavior in `.linstagedrc` and `.huskyrc` config files.
+Git hooks management is provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). To enable git hooks you have to rename `huskyrc-template` file to `.huskyrc` in the root of project.
+
+Another option is to extend `package.json` with: 
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "CI=true yarn test"
+    }
+  }
+}
+```
+
+Thus every time you commit something `husky` will run `eslint --fix` command  on staged files, preventing you from committing badly formatted code. You can change or disable this behavior inside `.linstagedrc` config file. Before each push tests will run in the same manner. 
 
 ### Caveats
 
-- If pre-commit hooks not work (e. g. your code is not linted after commit), run ``yarn add husky`` in your project folder. This will fix problem introduced in recent CRA update.
+- If pre-commit hooks not work (e. g. your code is not linted after commit), run ``yarn add husky`` in your project folder.
 
 - You need to [update snapshots](https://jestjs.io/docs/en/snapshot-testing#updating-snapshots) and fix failing tests to be able to commit or push your code.
 
