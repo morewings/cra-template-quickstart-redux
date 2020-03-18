@@ -57,7 +57,7 @@ Another option is to extend `package.json` with:
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "CI=true yarn test"
+      "pre-push": "CI=true yarn test --passWithNoTests"
     }
   }
 }
