@@ -77,7 +77,7 @@ Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are
 
 ## Code quality tools
 
-The purpose of code quality tools is to provide statical check of your code and try to fix errors. These checks are triggered inside pre-commit hook. To run them manually:
+The purpose of code quality tools is to do statical check of your code and try to fix errors. These checks are triggered inside pre-commit hook. To run them manually:
 
 ```shell script
 yarn lint:js # runs eslint in src directory
@@ -182,10 +182,50 @@ const Component = () => (
 )
 ```
 
-### PostCSS support
+CRA doesn't support style processors, except SASS. But this doesn't mean, that we shouldn't use them. In order to add support for custom style processor without ejecting, we can use file watchers. File watchers will track changes in style files and compile them to vanilla CSS, consumed by CRA.
+
+### PostCSS watcher
+
+1. Install postcss-cli and related plugins:
+    ```shell script
+    yarn add --dev postcss-nested postcss-cli postcss-preset-env postcss-prettify npm-run-all 
+    ```
+2. Modify package scripts:
+
+    ```json
+    {
+        "build:style": "postcss src/**/*.pcss --dir src --base src --ext css",
+        "watch:style": "yarn build:style -w",
+        "start": "npm-run-all -p watch:style start:js",
+        "start:js": "react-scripts start",
+        "build:js": "react-scripts build",
+        "build": "npm-run-all build:style build:js"
+    }
+    ```
+3. Add `postcss.config.js` file in the root folder. With following configuration:
+
+    ```js
+    const pkg = require('./package.json');
+    
+    module.exports = {
+      plugins: [
+        require('postcss-nested'), // handle nested selectors, like LESS or SASS
+        require('postcss-preset-env')({
+          browsers: pkg.browserslist.production, // use browsers list from production mode
+          stage: 1,
+        }),
+        require('postcss-prettify'), // prettify css output
+      ],
+    };
+    ```
+4. Add rule to `.gitignore` to ignore all css files.
+
+    ```gitignore
+    # css
+    *.css
+    ```
+Then start application normally. 
 
 ## Absolute imports
 
 You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. Configuration is inside `jsconfig.json` file. You will love it 💖!
-
-
