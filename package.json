@@ -56,13 +56,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean-files": "rm -rf ./template/public ./template/src && rm -f ./template/.env ./template/.eslintrc  ./template/.nvmrc ./template/.prettierrc ./template/jsconfig.json ./template/.huskyrc ./template/.lintstagedrc ./template/README.md ./template/README_CRA.md .stylelintrc.json",
-    "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .env .eslintrc .nvmrc .prettierrc jsconfig.json .lintstagedrc README.md README_CRA.md template/ && cp .huskyrc template/huskyrc-template && cp .stylelintrc.json",
-    "prepublishOnly": "yarn clean-files && yarn copy-files",
-    "fix": "eslint --fix ./src/",
-    "lint": "eslint ./src/",
-    "stylelint": "npx stylelint ./src/",
-    "stylelint:fix": "npx stylelint ./src/ --fix"
+    "clean:files": "rm -rf ./template/public ./template/src && rm -f ./template/.env ./template/.eslintrc  ./template/.nvmrc ./template/.prettierrc ./template/jsconfig.json ./template/.huskyrc ./template/.lintstagedrc ./template/README.md ./template/README_CRA.md .stylelintrc.json",
+    "copy:files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .env .eslintrc .nvmrc .prettierrc jsconfig.json .lintstagedrc README.md README_CRA.md template/ && cp .huskyrc template/huskyrc-template && cp .stylelintrc.json",
+    "prepublishOnly": "yarn clean:files && yarn copy:files",
+    "fix:js": "npx eslint --fix ./src/",
+    "lint:js": "npx eslint ./src/",
+    "lint:style": "npx stylelint ./src/",
+    "fix:style": "npx stylelint ./src/ --fix"
   },
   "browserslist": {
     "production": [

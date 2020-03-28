@@ -36,11 +36,11 @@ In the project directory, you can run:
 
 - `yarn eject`. Exposes content of `react-script` package
 
-- `yarn lint`. Lints project files according to eslint rules, see below. Typical use case: continuous integration environments, Travis, CircleCI, etc.
+- `yarn lint:js`. Lints project files according to eslint rules, see below. Typical use case: continuous integration environments, Travis, CircleCI, etc.
 
-- `yarn fix`. Same as `yarn lint`, but also fixes errors, when possible. Typical use case: local development environment, git hooks.
+- `yarn fix:js`. Same as `yarn lint`, but also fixes errors, when possible. Typical use case: local development environment, git hooks.
 
-Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all confifguration is done by adding config files where possible. Also no `devDependencies` for now, sorry.
+Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all configuration is done by adding config files where possible. Also no `devDependencies` for now, sorry.
 
 ## Redux configuration
 
@@ -75,62 +75,114 @@ Thus every time you commit something `husky` will run `eslint --fix` command  on
 
 Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store).
 
-## Eslint configuration
-Template extends CRA eslint rules with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Don't like trailing semicolons? Feel free to [tweak prettier rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
+## Code quality tools
+
+The purpose of code quality tools is to provide statical check of your code and try to fix errors. These checks are triggered inside pre-commit hook. To run them manually:
+
+```shell script
+yarn lint:js # runs eslint in src directory
+yarn fix:js # runs eslint in src directory with --fix parameter
+yarn lint:style # runs stylelint in src directory
+yarn fix:style # runs stylelint in src directory with --fix parameter
+```
+
+### eslint
+
+Template extends [CRA eslint rules](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Don't like trailing semicolons? Feel free to [tweak prettier rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
 
 Eslint rules are commented for your convenience feel free to tweak or remove them. No judgement.
 
 ```js
-    // Allow jsx tags inside .js files.
-    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
-    // Disable props spreading (<App {...props} />) warning.
-    "react/jsx-props-no-spreading": 0,
-    // Throw warning instead of error when using array index as a key.
-    "react/no-array-index-key": 1,
-    // Allow modules with named exports only.
-    "import/prefer-default-export": 0,
-    // Force {foo: 'bar'} object literal syntax.
-    "object-curly-spacing": ["error", "never"],
-    // Throw warning instead of error when function is not properly formatted. 
-    // Feel free to choose your favorite option https://eslint.org/docs/rules/arrow-body-style
-    "arrow-body-style": ["warn", "as-needed"],
-    // Make prettier code formatting suggestions more verbose.
-    "prettier/prettier": ["warn"],
-    // Throw warning when <a href="#"> or <a href="javascript:void(0)"> are used.
-    // Use <button> instead.
-    "jsx-a11y/anchor-is-valid": ["warn", {"aspects": ["invalidHref"]}],
-    // Allow using (props) => <Component /> and ({propName}) => <Component /> syntax.
-    "react/destructuring-assignment": "off",
-    // Disable <Fragment> => <> replacement. Feel free to change
-    "react/jsx-fragments": "off",
-    // Below is the set of functional rules to warn developer about accidental mutations, 
-    // which may cause error in reducers etc.
-    // No delete operator.
-    "fp/no-delete": "warn",
-    // Warning when Object.assign(a, b) used, since it mutates first argument.
-    // Object.assign({}, a, b) is ok.
-    "fp/no-mutating-assign": "warn",
-    // Warning when mutating method (pop, push, reverse, shift, sort, splice, unshift, etc) 
-    // is used. Ramda and lodash/fp are allowed (_.pop, R.push)
-    "fp/no-mutating-methods": [
-      "warn",
-      {
-        "allowedObjects": ["_", "R"]
-      }
-    ],
-    // Warning when mutating operators (++, --, etc) are used, object = {} also. 
-    // `Component.propTypes`, `Component.defaultProps`, common.js (`module.exports`)
-    // and `ref.current` are ok.
-        "fp/no-mutation": [
-          "warn",
-          {
-            "commonjs": true,
-            "allowThis": true,
-            "exceptions": [{"property": "propTypes"}, {"property": "defaultProps"}, {"property": "current"}]
-          }
-        ]
-      }
+// Allow jsx tags inside .js files.
+"react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+// Disable props spreading (<App {...props} />) warning.
+"react/jsx-props-no-spreading": 0,
+// Throw warning instead of error when using array index as a key.
+"react/no-array-index-key": 1,
+// Allow modules with named exports only.
+"import/prefer-default-export": 0,
+// Force {foo: 'bar'} object literal syntax.
+"object-curly-spacing": ["error", "never"],
+// Throw warning instead of error when function is not properly formatted. 
+// Feel free to choose your favorite option https://eslint.org/docs/rules/arrow-body-style
+"arrow-body-style": ["warn", "as-needed"],
+// Make prettier code formatting suggestions more verbose.
+"prettier/prettier": ["warn"],
+// Throw warning when <a href="#"> or <a href="javascript:void(0)"> are used.
+// Use <button> instead.
+"jsx-a11y/anchor-is-valid": ["warn", {"aspects": ["invalidHref"]}],
+// Allow using (props) => <Component /> and ({propName}) => <Component /> syntax.
+"react/destructuring-assignment": "off",
+// Disable <Fragment> => <> replacement. Feel free to change
+"react/jsx-fragments": "off",
+// Below is the set of functional rules to warn developer about accidental mutations, 
+// which may cause error in reducers etc.
+// No delete operator.
+"fp/no-delete": "warn",
+// Warning when Object.assign(a, b) used, since it mutates first argument.
+// Object.assign({}, a, b) is ok.
+"fp/no-mutating-assign": "warn",
+// Warning when mutating method (pop, push, reverse, shift, sort, splice, unshift, etc) 
+// is used. Ramda and lodash/fp are allowed (_.pop, R.push)
+"fp/no-mutating-methods": [
+  "warn",
+  {
+    "allowedObjects": ["_", "R"]
+  }
+],
+// Warning when mutating operators (++, --, etc) are used, object = {} also. 
+// `Component.propTypes`, `Component.defaultProps`, common.js (`module.exports`)
+// and `ref.current` are ok.
+"fp/no-mutation": [
+  "warn",
+  {
+    "commonjs": true,
+    "allowThis": true,
+    "exceptions": [{"property": "propTypes"}, {"property": "defaultProps"}, {"property": "current"}]
+  }
+]
 ```
+
+### stylelint
+
+Template includes [stylelint](https://stylelint.io/), which checks and tries to fix errors in CSS/SASS/LESS code. We are using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) rule set extended with:
+
+```js
+// Check `calc` functions formatting, required for `calc` to work in IE11
+"function-calc-no-unspaced-operator": true,
+// Custom rules (aka CSS vars) should go first
+"order/order": [
+  "custom-properties",
+  "declarations"
+],
+// Require rules to be in alphabetical order
+"order/properties-alphabetical-order": true,
+// Disallow vendor prefixes, since CRA has autoprefixer enabled
+"property-no-vendor-prefix": true,
+"media-feature-name-no-vendor-prefix": true,
+"at-rule-no-vendor-prefix": true,
+"selector-no-vendor-prefix": true,
+// Limit rules nesting for readablity purposes
+"max-nesting-depth": 3,
+// Limit selector complexity for readablity purposes
+"selector-max-compound-selectors": 5
+```
+Stylelint errors don't prevent build of application in development mode.
+
+## Styling
+
+Template uses vanilla CSS with `autoprefixer` enabled. To avoid classname collisions and reduce nesting we are using `css-modules`. To make css-modules work, stylesheet file name should have `.module` suffix.
+
+```js
+import React from 'react';
+import classes from './Component.module.css';
+
+const Component = () => (
+  <div className={classes.wrapper}>Component</div>
+)
+```
+
+### PostCSS support
 
 ## Absolute imports
 
