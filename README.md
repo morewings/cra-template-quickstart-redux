@@ -184,6 +184,10 @@ const Component = () => (
 
 CRA doesn't support style processors, except SASS. But this doesn't mean, that we shouldn't use them. In order to add support for custom style processor without ejecting, we can use file watchers. File watchers will track changes in style files and compile them to vanilla CSS, consumed by CRA.
 
+### SASS/SCSS
+
+SASS/SCSS support comes "out of the box" in CRA. To enable it:
+
 ### PostCSS watcher
 
 1. Install postcss-cli and related plugins:
