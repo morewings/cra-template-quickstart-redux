@@ -11,7 +11,7 @@ cache:
 script:
   - yarn lint
   - yarn stylelint
-  - yarn test --coverage
+  - yarn test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
