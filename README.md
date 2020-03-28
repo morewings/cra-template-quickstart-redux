@@ -188,6 +188,24 @@ CRA doesn't support style processors, except SASS. But this doesn't mean, that w
 
 SASS/SCSS support comes "out of the box" in CRA. To enable it:
 
+1. Install node-sass
+
+    ```shell script
+    yarn add node-sass --dev
+    ```
+
+2. Import SASS/SCSS files straight into Component.
+
+    ```js
+    import React from 'react';
+    import classes from './Component.module'; // note the absent extension
+    
+    const Component = () => (
+      <div className={classes.wrapper}>Component</div>
+    )
+    ```
+
+
 ### PostCSS watcher
 
 1. Install postcss-cli and related plugins:
