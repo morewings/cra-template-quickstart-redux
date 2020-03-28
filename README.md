@@ -204,7 +204,7 @@ SASS/SCSS support comes "out of the box" in CRA. To enable it:
       "*.js": [
         "eslint --fix"
       ],
-      "*.css": [
+      "*.scss": [
         "stylelint --fix"
       ]
     }
