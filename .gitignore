@@ -21,6 +21,7 @@
 /template/jsconfig.json
 /template/README.md
 /template/README_CRA.md
+/template/.stylelintrc.json
 
 # production
 /build
