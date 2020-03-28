@@ -5,7 +5,7 @@
 
 # Quickstart Redux Create React App template
 
-Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, enzyme and custom eslint configuration.
+Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, enzyme, eslint and stylelint configurations.
 
 Original Create React App README available [here](./README_CRA.md)
 
