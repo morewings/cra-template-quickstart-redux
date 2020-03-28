@@ -11,36 +11,29 @@ Original Create React App README available [here](./README_CRA.md)
 
 ## Usage
 
-``npx create-react-app %PROJECT_NAME% --template quickstart-redux`` 
-
+```shell script
+npx create-react-app %PROJECT_NAME% --template quickstart-redux
+``` 
 Or
-
-``yarn create react-app %PROJECT_NAME% --template quickstart-redux``
+```shell script
+yarn create react-app %PROJECT_NAME% --template quickstart-redux
+```
 
 `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
+
+Then
+
+```shell script
+cd %PROJECT_NAME%
+yarn start
+```
 
 
 ## Motivation
 
 I use Create React App pretty much often. But I hate to write same boilerplate code to make Redux working and configure some other useful stuff again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-- `yarn start`. Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. 
-
-- `yarn test`. Launches the test runner in the interactive watch mode.
-
-- `yarn build`. Builds the app for production to the `build` folder.
-
-- `yarn eject`. Exposes content of `react-script` package
-
-- `yarn lint:js`. Lints project files according to eslint rules, see below. Typical use case: continuous integration environments, Travis, CircleCI, etc.
-
-- `yarn fix:js`. Same as `yarn lint`, but also fixes errors, when possible. Typical use case: local development environment, git hooks.
-
-Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all configuration is done by adding config files where possible. Also no `devDependencies` for now, sorry.
+Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all configuration is done by adding config files where possible.
 
 ## Redux configuration
 
