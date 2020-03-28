@@ -196,7 +196,20 @@ SASS/SCSS support comes "out of the box" in CRA. To enable it:
     const Component = () => (
       <div className={classes.wrapper}>Component</div>
     )
+    ``` 
+3. Change `.lintstagedrc` to lint `scss` files instead of `css`.
+
+    ```json
+    {
+      "*.js": [
+        "eslint --fix"
+      ],
+      "*.css": [
+        "stylelint --fix"
+      ]
+    }
     ```
+
 You can see all changes required to enable SASS/SCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/16).
 
 ### PostCSS watcher
@@ -233,7 +246,7 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
       ],
     };
     ```
-3. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
+4. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
 
     #### .gitignore
     
@@ -249,6 +262,18 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
     "ignoreFiles": ["**/*.snap", "**/*.css"]
     }
    ```
+5. Change `.lintstagedrc` to lint `pcss` files instead of `css`.
+
+```json
+{
+  "*.js": [
+    "eslint --fix"
+  ],
+  "*.pcss": [
+    "stylelint --fix"
+  ]
+}
+```
    
 You can see all changes required to enable PostCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/15).
 
@@ -286,6 +311,18 @@ You can see all changes required to enable PostCSS in [corresponding PR](https:/
     "ignoreFiles": ["**/*.snap", "**/*.css"]
     }
    ```
+4. Change `.lintstagedrc` to lint `less` files instead of `css`.
+
+    ```json
+    {
+      "*.js": [
+        "eslint --fix"
+      ],
+      "*.less": [
+        "stylelint --fix"
+      ]
+    }
+    ```
    
 You can see all changes required to enable Less in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/17).
 
