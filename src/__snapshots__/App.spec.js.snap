@@ -14,14 +14,19 @@ exports[`renders without crashing 1`] = `
 >
   <App>
     <div
-      className="App"
+      className="container"
     >
       <Counter>
-        <div>
-          <div>
+        <div
+          className="counter"
+        >
+          <h2
+            className="header"
+          >
             Counter component
-          </div>
+          </h2>
           <button
+            className="button"
             onClick={[Function]}
             type="button"
           >

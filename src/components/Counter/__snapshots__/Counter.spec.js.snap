@@ -14,11 +14,16 @@ exports[`src > components > Counter renders without crashing 1`] = `
   }
 >
   <Counter>
-    <div>
-      <div>
+    <div
+      className="counter"
+    >
+      <h2
+        className="header"
+      >
         Counter component
-      </div>
+      </h2>
       <button
+        className="button"
         onClick={[Function]}
         type="button"
       >
