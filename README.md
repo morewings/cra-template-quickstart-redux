@@ -204,7 +204,7 @@ SASS/SCSS support comes "out of the box" in CRA. To enable it:
       <div className={classes.wrapper}>Component</div>
     )
     ```
-
+You can see all changes required to enable SASS/SCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/16).
 
 ### PostCSS watcher
 
