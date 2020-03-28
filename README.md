@@ -224,7 +224,8 @@ CRA doesn't support style processors, except SASS. But this doesn't mean, that w
     # css
     *.css
     ```
-Then start application normally. 
+   
+You can see all changes required to enable PostCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/15).
 
 ## Absolute imports
 
