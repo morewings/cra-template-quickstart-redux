@@ -198,7 +198,7 @@ SASS/SCSS support comes "out of the box" in CRA. To enable it:
 
     ```js
     import React from 'react';
-    import classes from './Component.module'; // note the absent extension
+    import classes from './Component.module.scss'; // note the changed extension
     
     const Component = () => (
       <div className={classes.wrapper}>Component</div>
