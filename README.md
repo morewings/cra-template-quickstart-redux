@@ -216,7 +216,7 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
 
 1. Install `postcss-cli` and related plugins:
     ```shell script
-    yarn add --dev postcss-nested postcss-cli postcss-preset-env postcss-prettify npm-run-all 
+    yarn add --dev postcss-nested postcss-cli postcss-preset-env npm-run-all 
     ```
 2. Modify package scripts:
 
@@ -242,7 +242,6 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
           browsers: pkg.browserslist.production, // use browsers list from production mode
           stage: 1,
         }),
-        require('postcss-prettify'), // prettify css output
       ],
     };
     ```
