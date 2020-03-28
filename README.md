@@ -188,7 +188,7 @@ CRA doesn't support style processors, except SASS. But this doesn't mean, that w
 
 SASS/SCSS support comes "out of the box" in CRA. To enable it:
 
-1. Install node-sass
+1. Install `node-sass`
 
     ```shell script
     yarn add node-sass --dev
@@ -208,7 +208,7 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
 
 ### PostCSS watcher
 
-1. Install postcss-cli and related plugins:
+1. Install `postcss-cli` and related plugins:
     ```shell script
     yarn add --dev postcss-nested postcss-cli postcss-preset-env postcss-prettify npm-run-all 
     ```
@@ -240,14 +240,61 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
       ],
     };
     ```
-4. Add rule to `.gitignore` to ignore all css files.
+3. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
 
+    #### .gitignore
+    
     ```gitignore
     # css
     *.css
     ```
    
+   #### .stylelintrc.json
+       
+   ```json
+    {
+    "ignoreFiles": ["**/*.snap", "**/*.css"]
+    }
+   ```
+   
 You can see all changes required to enable PostCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/15).
+
+### Less watcher
+
+1. Install `less` and related plugins:
+    ```shell script
+    yarn add --dev less less-watch-compiler npm-run-all 
+    ```
+2. Modify package scripts:
+
+    ```json
+    {
+        "build:style": "yarn watch:style --run-once",
+        "watch:style": "less-watch-compiler src src",
+        "start": "npm-run-all -p watch:style start:js",
+        "start:js": "react-scripts start",
+        "build:js": "react-scripts build",
+        "build": "npm-run-all build:style build:js"
+    }
+    ```
+3. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
+
+    #### .gitignore
+    
+    ```gitignore
+    # css
+    *.css
+    ```
+   
+   #### .stylelintrc.json
+       
+   ```json
+    {
+    "ignoreFiles": ["**/*.snap", "**/*.css"]
+    }
+   ```
+   
+You can see all changes required to enable Less in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/17).
 
 ## Absolute imports
 
