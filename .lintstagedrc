@@ -2,7 +2,7 @@
   "*.js": [
     "eslint --fix"
   ],
-  "*.scss": [
+  "*.css": [
     "stylelint --fix"
   ]
 }
