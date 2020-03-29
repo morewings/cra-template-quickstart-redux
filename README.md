@@ -42,7 +42,7 @@ Template provides basic Redux configuration with [feature based](https://redux.j
 
 ## Git hooks
 
-Git hooks management is provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). To enable git hooks you have to rename `huskyrc-template` file to `.huskyrc` in the root of project.
+Git hooks management is provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). To enable git hooks you have to rename file `huskyrc-template` to `.huskyrc` in the root of project.
 
 Another option is to extend `package.json` with: 
 
@@ -264,16 +264,16 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
    ```
 5. Change `.lintstagedrc` to lint `pcss` files instead of `css`.
 
-```json
-{
-  "*.js": [
-    "eslint --fix"
-  ],
-  "*.pcss": [
-    "stylelint --fix"
-  ]
-}
-```
+    ```json
+    {
+      "*.js": [
+        "eslint --fix"
+      ],
+      "*.pcss": [
+        "stylelint --fix"
+      ]
+    }
+    ```
    
 You can see all changes required to enable PostCSS in [corresponding PR](https://github.com/morewings/cra-template-quickstart-redux/pull/15).
 

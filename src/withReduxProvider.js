@@ -1,4 +1,6 @@
+import React from 'react';
 import {combineReducers, createStore} from 'redux';
+import {Provider} from 'react-redux';
 import {CounterReducer} from './features/counter';
 
 /* Create root reducer, containing all features of the application */
@@ -11,6 +13,14 @@ const reduxDevtoolsEnhancer =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(); // initialize Redux Dev Tools, if they are installed in browser.
 /* eslint-enable */
 
-const store = createStore(rootReducer, reduxDevtoolsEnhancer);
+/* Create Redux store with required boilerplate */
+export const store = createStore(rootReducer, reduxDevtoolsEnhancer);
 
-export default store;
+/* Higher Order Component which takes another Component and wraps it with Redux store */
+const withReduxProvider = WrappedComponent => props => (
+  <Provider store={store}>
+    <WrappedComponent {...props} />
+  </Provider>
+);
+
+export default withReduxProvider;
