@@ -1,1 +1,5 @@
-export const getCountValue = state => state.count.value;
+import {useSelector} from 'react-redux';
+
+const useCountValue = () => useSelector(state => state.count.value);
+
+export default useCountValue;
