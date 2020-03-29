@@ -1,14 +1,27 @@
 import React from 'react';
-import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
-import store from './store';
+import configureStore from 'redux-mock-store';
+import {render} from '@testing-library/react';
 import App from './App';
 
-it('renders without crashing', () => {
-  const wrapper = mount(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  expect(wrapper).toMatchSnapshot();
+describe('App', () => {
+  const mockStore = configureStore([]);
+  const store = mockStore({
+    count: {
+      value: 6,
+    },
+  });
+
+  it('renders without crashing', () => {
+    /**
+     * `asFragment`:
+     * @see https://testing-library.com/docs/react-testing-library/api#asfragment
+     * `wrapper`
+     * @see https://testing-library.com/docs/react-testing-library/api#wrapper
+     */
+    const {asFragment} = render(<App />, {
+      wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
+    });
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

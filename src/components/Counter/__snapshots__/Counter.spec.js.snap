@@ -1,42 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`src > components > Counter renders without crashing 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Counter>
-    <div
-      className="counter"
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
     >
-      <h2
-        className="header"
-      >
-        Counter component
-      </h2>
-      <button
-        className="button"
-        onClick={[Function]}
-        type="button"
-      >
-        Click me!
-      </button>
-      <div>
-        You clicked: 
-        <strong>
-          6
-        </strong>
-         times.
-      </div>
+      Counter component
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Click me!
+    </button>
+    <div>
+      You clicked: 
+      <strong>
+        6
+      </strong>
+       times.
     </div>
-  </Counter>
-</Provider>
+  </div>
+</DocumentFragment>
 `;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="counter"
+    >
+      <h2
+        class="header"
+      >
+        Counter component
+      </h2>
+      <button
+        class="button"
+        type="button"
+      >
+        Click me!
+      </button>
+      <div>
+        You clicked: 
+        <strong>
+          6
+        </strong>
+         times.
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

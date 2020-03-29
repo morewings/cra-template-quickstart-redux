@@ -2,7 +2,10 @@ import {INCREMENT_COUNTER} from './actionTypes';
 import CounterReducer from './CounterReducer';
 
 describe('features > counter > CounterReducer', () => {
-  /* All test cases are very simple, since Redux reducers are pure functions */
+  /**
+   * All test cases are very simple, since Redux
+   * reducers are pure functions
+   */
   it('returns initial state, if non matched action is provided', () => {
     const initialState = {
       value: 0,
@@ -19,7 +22,7 @@ describe('features > counter > CounterReducer', () => {
       value: 0,
     };
 
-    /* State we expect after action dispatched */
+    /** State we expect after action dispatched */
     const expectedState = {
       value: 1,
     };
@@ -27,7 +30,10 @@ describe('features > counter > CounterReducer', () => {
     const action = {
       type: INCREMENT_COUNTER,
     };
-
-    expect(CounterReducer(initialState, action)).toEqual(expectedState); // use `toEqual` matcher instead of `toBe`, since latter assumes object equality
+    /**
+     * Use `toEqual` matcher instead of `toBe`,
+     * since latter assumes object equality
+     */
+    expect(CounterReducer(initialState, action)).toEqual(expectedState);
   });
 });
