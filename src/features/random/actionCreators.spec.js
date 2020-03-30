@@ -114,6 +114,7 @@ describe('features > counter > useActions', () => {
         try {
           await result.current.getNumber();
         } catch {
+          void 0;
         } finally {
           expect(store.getActions()[0]).toEqual({
             type: `${GET_RANDOM_NUMBER}_PENDING`,
