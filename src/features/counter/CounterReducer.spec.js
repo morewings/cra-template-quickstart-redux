@@ -17,7 +17,7 @@ describe('features > counter > CounterReducer', () => {
 
     expect(CounterReducer(initialState, action)).toBe(initialState);
   });
-  it(`increments value, if ${INCREMENT_COUNTER} action is provided`, () => {
+  it(`sets incremented value, if ${INCREMENT_COUNTER} action is provided`, () => {
     const initialState = {
       value: 0,
     };
@@ -29,6 +29,7 @@ describe('features > counter > CounterReducer', () => {
 
     const action = {
       type: INCREMENT_COUNTER,
+      value: expectedState.value,
     };
     /**
      * Use `toEqual` matcher instead of `toBe`,

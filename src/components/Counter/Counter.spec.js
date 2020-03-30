@@ -70,6 +70,7 @@ describe('src > components > Counter', () => {
     /** Check if store.dispatch was run with correct action */
     expect(store.dispatch).toHaveBeenCalledWith({
       type: INCREMENT_COUNTER,
+      value: 7,
     });
   });
 });

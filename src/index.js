@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import withReduxProvider from './withReduxProvider';
+import withReduxFeatures from './withReduxFeatures';
 import App from './components/App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 /** Wrap App component with store providers */
-const WrappedApp = withReduxProvider(App);
+const WrappedApp = withReduxFeatures(App);
 
 ReactDOM.render(<WrappedApp />, document.getElementById('root'));
 

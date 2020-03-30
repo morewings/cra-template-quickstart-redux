@@ -22,6 +22,11 @@ describe('App', () => {
     const {asFragment} = render(<App />, {
       wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
     });
+
+    /**
+     * Basic snapshot test to make sure, that rendered component
+     * matches expected footprint.
+     */
     expect(asFragment()).toMatchSnapshot();
   });
 });

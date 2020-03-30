@@ -1,7 +1,7 @@
-import React from 'react';
 import {combineReducers, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {CounterReducer} from './features/counter';
+import withProvider from './withProvider';
 
 /**
  * Create root reducer, containing
@@ -24,13 +24,6 @@ const reduxDevtoolsEnhancer =
 export const store = createStore(rootReducer, reduxDevtoolsEnhancer);
 
 /**
- * Higher Order Component which takes another
- * Component and wraps it with Redux store
+ * Create HOC, which wraps given Component with Redux Provider
  */
-const withReduxProvider = WrappedComponent => props => (
-  <Provider store={store}>
-    <WrappedComponent {...props} />
-  </Provider>
-);
-
-export default withReduxProvider;
+export default withProvider({store, Provider});

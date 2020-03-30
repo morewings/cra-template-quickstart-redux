@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_COUNTER:
-      return {...state, value: state.value + 1};
+      return {...state, value: action.value};
 
     default:
       return state;
