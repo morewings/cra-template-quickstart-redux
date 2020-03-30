@@ -12,7 +12,8 @@
     "create-react-app",
     "cra-template",
     "template",
-    "enzyme",
+    "react-testing-library",
+    "testing-library",
     "eslint",
     "redux"
   ],
