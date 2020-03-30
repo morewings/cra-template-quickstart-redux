@@ -72,7 +72,7 @@ Snapshot testing done with [react-testing-library](https://testing-library.com/d
 
 ## Code quality tools
 
-The purpose of code quality tools is to do statical check of your code and try to fix errors. These checks are triggered inside pre-commit hook. To run them manually:
+Code quality tools provide static check of your code and try to fix errors. Checks are triggered inside pre-commit hook. To run them manually:
 
 ```shell script
 yarn lint:js # runs eslint in src directory
@@ -85,7 +85,7 @@ yarn fix:style # runs stylelint in src directory with --fix parameter
 
 Template extends [CRA eslint rules](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) with custom set, tailored for reasonable and clean development process. I added `prettier` to force consistent formatting and `eslint-plugin-fp` to avoid accidental mutations. Don't like trailing semicolons? Feel free to [tweak prettier rules](https://prettier.io/docs/en/configuration.html) inside `.prettierrc` file to match your code style.
 
-Eslint rules are commented for your convenience feel free to tweak or remove them. No judgement.
+Eslint rules are commented for your convenience, feel free to tweak or remove them. No judgement.
 
 ```js
 // Allow jsx tags inside .js files.
@@ -140,7 +140,7 @@ Eslint rules are commented for your convenience feel free to tweak or remove the
 
 ### stylelint
 
-Template includes [stylelint](https://stylelint.io/), which checks and tries to fix errors in CSS/SASS/LESS code. We are using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) rule set extended with:
+Template includes [stylelint](https://stylelint.io/), to check CSS/SASS/LESS files. We are using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) rule set extended with:
 
 ```js
 // Check `calc` functions formatting, required for `calc` to work in IE11
@@ -177,7 +177,7 @@ const Component = () => (
 )
 ```
 
-CRA doesn't support style processors, except SASS. But this doesn't mean, that we shouldn't use them. In order to add support for custom style processor without ejecting, we can use file watchers. File watchers will track changes in style files and compile them to vanilla CSS, consumed by CRA.
+CRA doesn't support style pre-processors except SASS. But this doesn't mean, that we shouldn't use them. In order to add support for custom style processor without ejecting, we can use file watchers. File watchers will track changes in style files and compile them to vanilla CSS, consumed by CRA.
 
 ### SASS/SCSS
 
