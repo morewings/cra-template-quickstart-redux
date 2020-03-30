@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import {renderHook} from '@testing-library/react-hooks';
 import useCountValue from './selectors';
 
-describe('useCountValue', () => {
+describe('features > counter > useCountValue', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const value = 6;

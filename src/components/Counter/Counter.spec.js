@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import {INCREMENT_COUNTER} from 'features/counter/actionTypes';
 import Counter from './Counter';
 
-describe('Counter', () => {
+describe('components > Counter', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const store = mockStore({

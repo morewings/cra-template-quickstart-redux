@@ -5,7 +5,7 @@ import {renderHook, act} from '@testing-library/react-hooks';
 import {INCREMENT_COUNTER} from './actionTypes';
 import useActions from './actionCreators';
 
-describe('useActions', () => {
+describe('features > counter > useActions', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const value = 6;

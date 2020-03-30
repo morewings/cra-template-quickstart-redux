@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import {GET_RANDOM_NUMBER} from 'features/random/actionTypes';
 import Random from './Random';
 
-describe('Random', () => {
+describe('components > Random', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
 

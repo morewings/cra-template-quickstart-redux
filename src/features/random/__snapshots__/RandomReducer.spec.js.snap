@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features > random > RandomReducer updates state according to dispatched action 1`] = `
+Object {
+  "hasError": false,
+  "isFulfilled": true,
+  "isLoading": false,
+  "number": 1,
+}
+`;
+
+exports[`features > random > RandomReducer updates state according to dispatched action 2`] = `
+Object {
+  "hasError": false,
+  "isFulfilled": false,
+  "isLoading": true,
+  "number": undefined,
+  "value": 0,
+}
+`;
+
+exports[`features > random > RandomReducer updates state according to dispatched action 3`] = `
+Object {
+  "hasError": true,
+  "isFulfilled": false,
+  "isLoading": false,
+  "number": undefined,
+}
+`;

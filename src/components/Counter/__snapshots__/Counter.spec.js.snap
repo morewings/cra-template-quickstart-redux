@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Counter renders without crashing 1`] = `
+exports[`components > Counter renders without crashing 1`] = `
 <DocumentFragment>
   <div
     class="counter"

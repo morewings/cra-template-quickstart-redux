@@ -6,7 +6,7 @@ describe('features > counter > CounterReducer', () => {
    * All test cases are very simple, since Redux
    * reducers are pure functions
    */
-  it('returns initial state, if non matched action is provided', () => {
+  it('returns initial state, if non matched action is dispatched', () => {
     const initialState = {
       value: 0,
     };
@@ -18,7 +18,7 @@ describe('features > counter > CounterReducer', () => {
     expect(CounterReducer(initialState, action)).toBe(initialState);
   });
 
-  it(`sets incremented value, if ${INCREMENT_COUNTER} action is provided`, () => {
+  it(`returns state with incremented value, if ${INCREMENT_COUNTER} action is dispatched`, () => {
     const initialState = {
       value: 0,
     };
