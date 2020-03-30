@@ -68,7 +68,7 @@ Thus every time you commit something `husky` will run `eslint --fix` command  on
 
 ## Testing
 
-Snapshot testing done with [enzyme](https://airbnb.io/enzyme/). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store).
+Snapshot testing done with [react-testing-library](https://testing-library.com/docs/react-testing-library/intro). Sample tests are included. Redux connected components are tested with [redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store) and [axios-mock-adapter](https://github.com/ctimmerm/axios-mock-adapter).
 
 ## Code quality tools
 
