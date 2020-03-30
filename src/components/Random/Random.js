@@ -4,9 +4,7 @@ import classes from './Random.module.css';
 
 const Random = () => {
   /**
-   *  Get count value from Redux store. We defined selector
-   *  (state => state.counter.value) inside counter feature folder,
-   *  to make component global state agnostic
+   *  Get number, returned  from random.org, and the state of request from Redux store.
    */
   const {number, isLoading, hasError, isFulfilled} = useRandomAPI();
 
