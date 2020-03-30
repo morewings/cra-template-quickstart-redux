@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/morewings/cra-template-quickstart-redux.svg?branch=master)](https://travis-ci.com/morewings/cra-template-quickstart-redux)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=morewings/cra-template-quickstart-redux)](https://dependabot.com)
 [![dependencies Status](https://david-dm.org/morewings/cra-template-quickstart-redux/status.svg)](https://david-dm.org/morewings/cra-template-quickstart-redux)
 [![npm version](https://badge.fury.io/js/cra-template-quickstart-redux.svg)](https://www.npmjs.com/package/cra-template-quickstart-redux)
 [![npm](https://img.shields.io/npm/dm/cra-template-quickstart-redux)](https://www.npmjs.com/package/cra-template-quickstart-redux)
