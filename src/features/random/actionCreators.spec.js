@@ -100,6 +100,7 @@ describe('features > counter > useActions', () => {
     it.each([[mockNetworkError], [mock404], [mockTimeout]])(
       `it handles API fetching errors`,
       async mockResponse => {
+        let hasThrown;
         const {result} = renderHook(() => useActions(), {
           wrapper: ({children}) => (
             <Provider store={store}>{children}</Provider>
@@ -114,7 +115,7 @@ describe('features > counter > useActions', () => {
         try {
           await result.current.getNumber();
         } catch {
-          void 0;
+          hasThrown = true;
         } finally {
           expect(store.getActions()[0]).toEqual({
             type: `${GET_RANDOM_NUMBER}_PENDING`,
@@ -124,6 +125,7 @@ describe('features > counter > useActions', () => {
           );
           expect(store.getActions()[1].payload).toBeInstanceOf(Error);
           expect(store.getActions()[1].payload).toMatchSnapshot();
+          expect(hasThrown).toBe(true);
         }
       }
     );
