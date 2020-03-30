@@ -1,5 +1,6 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
+import promise from 'redux-promise-middleware';
 import {CounterReducer} from './features/counter';
 import withProvider from './withProvider';
 
@@ -16,12 +17,15 @@ const rootReducer = combineReducers({
  * if they are installed in browser.
  */
 /* eslint-disable no-underscore-dangle */
-const reduxDevtoolsEnhancer =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+/** Use redux compose, if browser doesn't have Redux devtools */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /* eslint-enable */
 
-/** Create Redux store with required boilerplate */
-export const store = createStore(rootReducer, reduxDevtoolsEnhancer);
+/** Create Redux store with root reducer and middleware included */
+export const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(promise))
+);
 
 /**
  * Create HOC, which wraps given Component with Redux Provider

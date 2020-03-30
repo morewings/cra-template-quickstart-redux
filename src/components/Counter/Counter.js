@@ -15,15 +15,15 @@ const Counter = () => {
 
   return (
     <div className={classes.counter}>
-      <h2 className={classes.header}>Counter component</h2>
+      <h2 className={classes.header}>Sync counter</h2>
       <button
         className={classes.button}
         type="button"
         onClick={incrementCounter}>
-        Click me!
+        Increment by one
       </button>
       <div>
-        You clicked: <strong>{count}</strong> times.
+        Total value: <strong>{count}</strong>
       </div>
     </div>
   );

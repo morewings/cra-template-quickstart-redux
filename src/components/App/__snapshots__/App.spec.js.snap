@@ -11,20 +11,19 @@ exports[`App renders without crashing 1`] = `
       <h2
         class="header"
       >
-        Counter component
+        Basic counter
       </h2>
       <button
         class="button"
         type="button"
       >
-        Click me!
+        Increment by one
       </button>
       <div>
-        You clicked: 
+        Total value: 
         <strong>
           6
         </strong>
-         times.
       </div>
     </div>
   </div>

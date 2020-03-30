@@ -17,6 +17,7 @@ describe('features > counter > CounterReducer', () => {
 
     expect(CounterReducer(initialState, action)).toBe(initialState);
   });
+
   it(`sets incremented value, if ${INCREMENT_COUNTER} action is provided`, () => {
     const initialState = {
       value: 0,
