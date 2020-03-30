@@ -2,7 +2,6 @@
   border: 1px solid lightgray;
   margin: 36px 24px;
   padding: 24px;
-  text-align: center;
   width: 240px;
 }
 
@@ -10,6 +9,7 @@
   font-size: 24px;
   font-weight: normal;
   margin: 0 0 12px;
+  text-align: center;
 }
 
 .button {
@@ -25,7 +25,12 @@
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-.button:active {
+.button:disabled {
+  background: lightgray;
+  cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
   left: 1px;
   position: relative;
   top: 1px;

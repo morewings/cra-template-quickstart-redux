@@ -19,7 +19,11 @@ const Random = () => {
   return (
     <div className={classes.counter}>
       <h2 className={classes.header}>Async Random</h2>
-      <button className={classes.button} type="button" onClick={getNumber}>
+      <button
+        disabled={isLoading}
+        className={classes.button}
+        type="button"
+        onClick={getNumber}>
         Get random number
       </button>
       {isPristine && <div>Click the button to get random number</div>}

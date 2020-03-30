@@ -84,6 +84,7 @@ exports[`components > Random renders different store states it renders when isLo
     </h2>
     <button
       class="button"
+      disabled=""
       type="button"
     >
       Get random number

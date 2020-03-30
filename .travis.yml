@@ -12,6 +12,7 @@ script:
   - yarn lint:js
   - yarn lint:style
   - yarn test
+  - yarn build
 
 deploy:
   - provider: npm

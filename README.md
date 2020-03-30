@@ -6,7 +6,7 @@
 
 # Quickstart Redux Create React App template
 
-Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, enzyme, eslint and stylelint configurations.
+Opinionated quickstart [Create React App](https://github.com/facebook/create-react-app) (CRA) template with Redux, React Testing Library, eslint and stylelint configurations.
 
 Original Create React App README available [here](./README_CRA.md)
 
@@ -29,16 +29,17 @@ cd %PROJECT_NAME%
 yarn start
 ```
 
-
 ## Motivation
 
 I use Create React App pretty much often. But I hate to write same boilerplate code to make Redux working and configure some other useful stuff again and again. This template contains test and eslint configurations and Redux boilerplate code, required for rapid start of your fabulous project.
 
 Due to CRA template limitations (we can change only `scripts` and `dependencies` inside generated `package.json`) all configuration is done by adding config files where possible.
 
-## Redux configuration
+## Redux
 
-Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample feature included in `src/features` folder, note technology agnostic `features` folder name. Based on Redux maintainers recommendation.
+Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample feature included in `src/features` folder. 
+
+Template has examples of sync (`src/features/counter`) and async (`src/features/random`) Redux features and tests for them.
 
 ## Git hooks
 
@@ -246,7 +247,7 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
       ],
     };
     ```
-4. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
+4. Add rule to `.gitignore` and `.stylelintrc` to ignore all css files, since we are generating them.
 
     #### .gitignore
     
@@ -255,7 +256,7 @@ You can see all changes required to enable SASS/SCSS in [corresponding PR](https
     *.css
     ```
    
-   #### .stylelintrc.json
+   #### .stylelintrc
        
    ```json
     {
@@ -295,7 +296,7 @@ You can see all changes required to enable PostCSS in [corresponding PR](https:/
         "build": "npm-run-all build:style build:js"
     }
     ```
-3. Add rule to `.gitignore` and `.stylelintrc.json` to ignore all css files, since we are generating them.
+3. Add rule to `.gitignore` and `.stylelintrc` to ignore all css files, since we are generating them.
 
     #### .gitignore
     
@@ -304,7 +305,7 @@ You can see all changes required to enable PostCSS in [corresponding PR](https:/
     *.css
     ```
    
-   #### .stylelintrc.json
+   #### .stylelintrc
        
    ```json
     {
@@ -329,3 +330,30 @@ You can see all changes required to enable Less in [corresponding PR](https://gi
 ## Absolute imports
 
 You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. Configuration is inside `jsconfig.json` file. You will love it 💖!
+
+## Contents
+
+```shell script
+├── .env # dotenv config file
+├── .eslintrc # eslint configutation
+├── .lintstagedrc # lintstaged configutation
+├── .nvmrc # required Node version
+├── .prettierrc # prettier configutation
+├── .stylelintrc # stylelint configutation
+├── README.md # this file
+├── README_CRA.md # original Readme from CRA
+├── .gitignore
+├── huskyrc-template # template for husky configuration
+├── jsconfig.json # absolute path configuration
+├── public # public assets
+└── src
+    ├── components # React components folder
+    ├── config.js # shared config file
+    ├── features # features logic folder
+    ├── index.css
+    ├── index.js # entry point file
+    ├── serviceWorker.js # service worker boilerplate
+    ├── setupTests.js # configuration ti run jest tests
+    ├── withProvider.js # utility to generate Provider components
+    └── withReduxFeatures.js # Redux store HOC
+```
