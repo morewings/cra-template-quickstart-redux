@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features > counter > useActions getNumber it handles API fetching errors 1`] = `[Error: Network Error]`;
+
+exports[`features > counter > useActions getNumber it handles API fetching errors 2`] = `[Error: Request failed with status code 404]`;
+
+exports[`features > counter > useActions getNumber it handles API fetching errors 3`] = `[Error: timeout of 0ms exceeded]`;

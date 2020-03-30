@@ -2,10 +2,6 @@ import {GET_RANDOM_NUMBER} from './actionTypes';
 import RandomReducer from './RandomReducer';
 
 describe('features > random > RandomReducer', () => {
-  /**
-   * All test cases are very simple, since Redux
-   * reducers are pure functions
-   */
   it('returns initial state, if non matched action is dispatched', () => {
     const initialState = {
       isLoading: false,

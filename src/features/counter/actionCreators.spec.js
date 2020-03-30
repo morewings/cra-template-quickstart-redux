@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-import {renderHook, act} from '@testing-library/react-hooks';
+import {renderHook} from '@testing-library/react-hooks';
 import {INCREMENT_COUNTER} from './actionTypes';
 import useActions from './actionCreators';
 
@@ -52,13 +52,7 @@ describe('features > counter > useActions', () => {
         wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
       });
 
-      /**
-       * Wrap hook result call with act
-       * @see https://reactjs.org/docs/test-utils.html#act
-       */
-      act(() => {
-        result.current.incrementCounter();
-      });
+      result.current.incrementCounter();
 
       /** store.dispatch should be run once */
       expect(store.dispatch).toHaveBeenCalledTimes(1);
