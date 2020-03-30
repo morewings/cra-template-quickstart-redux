@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=10"
   },
-  "description": "Opinionated quickstart Create React App template with Redux, enzyme and custom eslint configuration",
+  "description": "Opinionated quickstart Create React App template with Redux, react-testing-library and custom eslint and stylelint configurations",
   "main": "template.json",
   "keywords": [
     "react",
