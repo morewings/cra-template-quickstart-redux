@@ -2,6 +2,7 @@ import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import promise from 'redux-promise-middleware';
 import {CounterReducer} from './features/counter';
+import {RandomReducer} from './features/random';
 import withProvider from './withProvider';
 
 /**
@@ -10,6 +11,7 @@ import withProvider from './withProvider';
  */
 const rootReducer = combineReducers({
   count: CounterReducer,
+  random: RandomReducer,
 });
 
 /**

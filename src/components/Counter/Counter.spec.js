@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import {INCREMENT_COUNTER} from 'features/counter/actionTypes';
 import Counter from './Counter';
 
-describe('src > components > Counter', () => {
+describe('Counter', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const store = mockStore({
@@ -57,11 +57,18 @@ describe('src > components > Counter', () => {
   });
 
   it('dispatches an action on button click', () => {
+    /**
+     * `getByRole`:
+     * @see https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+     */
     const {getByRole} = render(<Counter />, {
       wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
     });
 
-    /** Search for the button and make enzyme click on it */
+    /**
+     * Search for the button and make testing library click on it
+     * @see https://testing-library.com/docs/react-testing-library/cheatsheet#events
+     */
     fireEvent.click(getByRole('button'));
 
     /** Check if store.dispatch method was run */

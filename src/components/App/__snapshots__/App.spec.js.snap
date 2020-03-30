@@ -11,7 +11,7 @@ exports[`App renders without crashing 1`] = `
       <h2
         class="header"
       >
-        Basic counter
+        Sync counter
       </h2>
       <button
         class="button"
@@ -24,6 +24,24 @@ exports[`App renders without crashing 1`] = `
         <strong>
           6
         </strong>
+      </div>
+    </div>
+    <div
+      class="counter"
+    >
+      <h2
+        class="header"
+      >
+        Async Random
+      </h2>
+      <button
+        class="button"
+        type="button"
+      >
+        Get random number
+      </button>
+      <div>
+        Click the button to get random number
       </div>
     </div>
   </div>

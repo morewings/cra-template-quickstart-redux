@@ -10,6 +10,11 @@ describe('App', () => {
     count: {
       value: 6,
     },
+    random: {
+      isLoading: false,
+      hasError: false,
+      isFulfilled: false,
+    },
   });
 
   it('renders without crashing', () => {

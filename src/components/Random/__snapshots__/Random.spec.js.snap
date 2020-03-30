@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Random renders different store states it renders when isLoading === false && hasError === false && isFulfilled === false 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Click the button to get random number
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Random renders different store states it renders when isLoading === false && hasError === false && isFulfilled === true 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Number from random.org: 
+      <strong>
+        1
+      </strong>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Random renders different store states it renders when isLoading === false && hasError === true && isFulfilled === false 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Ups...
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Random renders different store states it renders when isLoading === true && hasError === false && isFulfilled === false 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Getting number
+    </div>
+  </div>
+</DocumentFragment>
+`;
