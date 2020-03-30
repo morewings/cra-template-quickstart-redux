@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
  * if they are installed in browser.
  */
 /* eslint-disable no-underscore-dangle */
-/** Use redux compose, if browser doesn't have Redux devtools */
+/** Use Redux compose, if browser doesn't have Redux devtools */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /* eslint-enable */
 

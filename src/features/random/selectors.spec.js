@@ -5,7 +5,6 @@ import {renderHook} from '@testing-library/react-hooks';
 import useRandomAPI from './selectors';
 
 describe('features > counter > useRandomAPI', () => {
-  /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const state = 'random';
 

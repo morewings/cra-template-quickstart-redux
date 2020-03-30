@@ -10,7 +10,7 @@ import {GET_RANDOM_NUMBER} from './actionTypes';
 import useActions from './actionCreators';
 
 describe('features > counter > useActions', () => {
-  /** Create mock store with the count value */
+  /** Create mock store with middlewares */
   const mockStore = configureStore([promise]);
 
   const store = mockStore({
@@ -115,7 +115,7 @@ describe('features > counter > useActions', () => {
         try {
           await result.current.getNumber();
         } catch {
-          hasThrown = true;
+          hasThrown = true; // eslint-disable-line fp/no-mutation
         } finally {
           expect(store.getActions()[0]).toEqual({
             type: `${GET_RANDOM_NUMBER}_PENDING`,

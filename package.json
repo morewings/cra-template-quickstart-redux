@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=10"
   },
-  "description": "Opinionated quickstart Create React App template with Redux, react-testing-library and custom eslint and stylelint configurations",
+  "description": "Opinionated quickstart Create React App template with Redux, React Testing Library and custom eslint and stylelint configurations",
   "main": "template.json",
   "keywords": [
     "react",
