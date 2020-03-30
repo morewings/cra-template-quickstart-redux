@@ -29,9 +29,6 @@
       "lint:js": "npx eslint ./src/",
       "lint:style": "npx stylelint ./src/",
       "fix:style": "npx stylelint ./src/ --fix"
-    },
-    "jest": {
-      "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
   }
 }
