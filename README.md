@@ -37,9 +37,7 @@ Due to CRA template limitations (we can change only `scripts` and `dependencies`
 
 ## Redux
 
-Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Sample feature included in `src/features` folder. 
-
-Template has examples of sync (`src/features/counter`) and async (`src/features/random`) Redux features and tests for them.
+Template provides basic Redux configuration with [feature based](https://redux.js.org/style-guide/style-guide/#structure-files-as-feature-folders-or-ducks) folder structure. You can use [Redux devtools browser extension](http://extension.remotedev.io/). Template has examples of sync (`src/features/counter`) and async (`src/features/random`) Redux features and tests for them.
 
 ## Git hooks
 
