@@ -61,8 +61,12 @@
     "stylelint-order": "^4.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:style": "postcss src/**/*.pcss --dir src --base src --ext css",
+    "watch:style": "yarn build:style -w",
+    "start": "npm-run-all -p watch:style start:js",
+    "start:js": "react-scripts start",
+    "build:js": "react-scripts build",
+    "build": "npm-run-all build:style build:js",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "clean:files": "node ./cleanFiles.js",
@@ -91,6 +95,10 @@
   "devDependencies": {
     "docz": "^2.3.1",
     "recursive-copy": "^2.0.11",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "postcss-nested": "^4.2.1",
+    "postcss-preset-env": "^6.7.0"
   }
 }
