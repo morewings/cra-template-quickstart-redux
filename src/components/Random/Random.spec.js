@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {render, fireEvent} from '@testing-library/react';
 import configureStore from 'redux-mock-store';
-import {GET_RANDOM_NUMBER} from 'features/random/actionTypes';
+import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
 import Random from './Random';
 
 describe('components > Random', () => {
