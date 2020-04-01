@@ -6,7 +6,7 @@ import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
 import Random from './Random';
 
 describe('components > Random', () => {
-  /** Create mock store with the count value */
+  /** Create mock store */
   const mockStore = configureStore([]);
 
   /**
