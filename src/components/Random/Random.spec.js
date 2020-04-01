@@ -1,16 +1,30 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent, waitFor} from '@testing-library/react';
+import MockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
+import promise from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
 import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
 import Random from './Random';
+import config from '../../config';
 
 describe('components > Random', () => {
-  /** 
-  * Create mock store
-  * @see https://github.com/dmitry-zaets/redux-mock-store
-  */
-  const mockStore = configureStore([]);
+  /**
+   * Create mock store
+   * @see https://github.com/dmitry-zaets/redux-mock-store
+   */
+  const mockStore = configureStore([promise]);
+
+  /**
+   * Initialize axios mock adapter to mock API responses
+   * @see https://github.com/ctimmerm/axios-mock-adapter
+   */
+  const mockAxios = new MockAdapter(axios);
+
+  beforeEach(() => {
+    mockAxios.resetHandlers();
+  });
 
   /**
    * Provide table of values to run tests with
@@ -24,7 +38,6 @@ describe('components > Random', () => {
     ${false}  | ${false} | ${true}
   `('renders different store states', ({isLoading, hasError, isFulfilled}) => {
     it(`it renders when isLoading === ${isLoading} && hasError === ${hasError} && isFulfilled === ${isFulfilled}`, () => {
-      /** Create store mock, using values from table */
       const store = mockStore({
         random: {
           isLoading,
@@ -37,8 +50,6 @@ describe('components > Random', () => {
       /**
        * `asFragment`:
        * @see https://testing-library.com/docs/react-testing-library/api#asfragment
-       * `qetByText`:
-       * @see https://testing-library.com/docs/dom-testing-library/api-queries#bytext
        * `wrapper`
        * @see https://testing-library.com/docs/react-testing-library/api#wrapper
        */
@@ -54,7 +65,7 @@ describe('components > Random', () => {
     });
   });
 
-  it('dispatches an action on button click', () => {
+  it('dispatches an action sequence on button click', async () => {
     const store = mockStore({
       random: {
         isLoading: false,
@@ -63,11 +74,9 @@ describe('components > Random', () => {
       },
     });
 
-    /**
-     * Add spy to watch for store.dispatch method.
-     * @see https://jestjs.io/docs/en/jest-object#jestspyonobject-methodname
-     */
-    jest.spyOn(store, 'dispatch');
+    /** Mock response from API */
+    const response = 6;
+    mockAxios.onGet(config.randomAPI).reply(200, response);
 
     /**
      * `getByRole`:
@@ -83,20 +92,19 @@ describe('components > Random', () => {
      */
     fireEvent.click(getByRole('button'));
 
-    /** Check if store.dispatch method was run */
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
-
-    /** Check if store.dispatch was run with correct action */
-    expect(store.dispatch).toHaveBeenCalledWith({
-      type: GET_RANDOM_NUMBER,
-      payload: expect.any(Promise),
+    /** First dispatched action should have _PENDING suffix */
+    expect(store.getActions()[0]).toEqual({
+      type: `${GET_RANDOM_NUMBER}_PENDING`,
     });
 
-    /**
-     * Clear any saved mock data from previous tests,
-     * because jest saves calls data for spies and mocks.
-     * @see https://jestjs.io/docs/en/mock-function-api#mockfnmockclear
-     */
-    store.dispatch.mockClear();
+    await waitFor(() => {
+      /** Second dispatched action should have _FULFILLED suffix */
+      expect(store.getActions()[1].type).toEqual(
+        `${GET_RANDOM_NUMBER}_FULFILLED`
+      );
+
+      /** Second dispatched action should deliver response from API */
+      expect(store.getActions()[1].payload.data).toEqual(response);
+    });
   });
 });
