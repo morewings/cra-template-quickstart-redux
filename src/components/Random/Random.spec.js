@@ -6,7 +6,10 @@ import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
 import Random from './Random';
 
 describe('components > Random', () => {
-  /** Create mock store */
+  /** 
+  * Create mock store
+  * @see https://github.com/dmitry-zaets/redux-mock-store
+  */
   const mockStore = configureStore([]);
 
   /**
