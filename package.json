@@ -57,10 +57,6 @@
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.0.0"
   },
-  "devDependencies": {
-    "recursive-copy": "^2.0.10",
-    "rimraf": "^3.0.2"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -85,5 +81,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "recursive-copy": "^2.0.10",
+    "rimraf": "^3.0.2"
   }
 }

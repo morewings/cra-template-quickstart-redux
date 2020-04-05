@@ -9,19 +9,8 @@
 /coverage
 
 # template
-/template/src
-/template/public
-/template/.env
-/template/.eslintrc
-/template/.huskyrc
-/template/huskyrc-template
-/template/.lintstagedrc
-/template/.nvmrc
-/template/.prettierrc
-/template/jsconfig.json
-/template/README.md
-/template/README_CRA.md
-/template/.stylelintrc
+/template/*
+/template/!gitignore
 
 # production
 /build
