@@ -1,0 +1,40 @@
+---
+name: 'Install'
+route: '/install'
+---
+
+# Install
+
+```shell script
+npx create-react-app %PROJECT_NAME% --template quickstart-redux
+```
+Or
+```shell script
+yarn create react-app %PROJECT_NAME% --template quickstart-redux
+```
+
+`npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
+
+Then
+
+```shell script
+cd %PROJECT_NAME%
+yarn start
+```
+
+## Enable husky
+
+Git hooks management is provided by [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged). To enable git hooks you have to rename file `huskyrc-template` to `.huskyrc` in the root of project.
+
+Another option is to extend `package.json` with:
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "CI=true yarn test --passWithNoTests"
+    }
+  }
+}
+```

@@ -36,6 +36,7 @@
     "@testing-library/user-event": "^10.1.0",
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.1",
+    "docz": "^2.3.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-fp": "^2.3.0",
@@ -68,7 +69,9 @@
     "fix:js": "npx eslint --fix ./src/",
     "lint:js": "npx eslint ./src/",
     "lint:style": "npx stylelint ./src/",
-    "fix:style": "npx stylelint ./src/ --fix"
+    "fix:style": "npx stylelint ./src/ --fix",
+    "start:docs": "docz dev",
+    "build:docs": "docz build"
   },
   "browserslist": {
     "production": [

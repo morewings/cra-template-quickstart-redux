@@ -13,6 +13,7 @@ script:
   - yarn lint:style
   - yarn test
   - yarn build
+  - yarn build:docs
 
 deploy:
   - provider: npm
@@ -23,6 +24,15 @@ deploy:
     on:
       tags: true
       branch: master
+  - provider: netlify
+    site: cra-template-quickstart-redux.netlify.com
+    auth: "$NETLIFY_TOKEN"
+    dir: docz-dist
+    prod: true
+    cleanup: false
+    edge: true
+    on:
+      branch: docz
 
 notifications:
   email: false
