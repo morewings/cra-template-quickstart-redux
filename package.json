@@ -1,6 +1,6 @@
 {
   "name": "cra-template-quickstart-redux",
-  "version": "0.6.12",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "node": ">=10"
