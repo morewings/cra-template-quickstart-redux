@@ -37,7 +37,7 @@ describe('components > Random', () => {
     ${false}  | ${true}  | ${false}
     ${false}  | ${false} | ${true}
   `('renders different store states', ({isLoading, hasError, isFulfilled}) => {
-    it(`it renders when isLoading === ${isLoading} && hasError === ${hasError} && isFulfilled === ${isFulfilled}`, () => {
+    it(`when isLoading === ${isLoading} && hasError === ${hasError} && isFulfilled === ${isFulfilled}`, () => {
       const store = mockStore({
         random: {
           isLoading,
@@ -50,7 +50,7 @@ describe('components > Random', () => {
       /**
        * `asFragment`:
        * @see https://testing-library.com/docs/react-testing-library/api#asfragment
-       * `wrapper`
+       * `wrapper`:
        * @see https://testing-library.com/docs/react-testing-library/api#wrapper
        */
       const {asFragment} = render(<Random />, {
@@ -58,7 +58,7 @@ describe('components > Random', () => {
       });
 
       /**
-       * Basic snapshot test to make sure, that rendered component
+       * Basic snapshot test to check, if rendered component
        * matches expected footprint.
        */
       expect(asFragment()).toMatchSnapshot();

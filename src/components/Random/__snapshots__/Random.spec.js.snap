@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components > Random renders different store states it renders when isLoading === false && hasError === false && isFulfilled === false 1`] = `
+exports[`components > Random renders different store states when isLoading === false && hasError === false && isFulfilled === false 1`] = `
 <DocumentFragment>
   <div
     class="counter"
@@ -23,7 +23,7 @@ exports[`components > Random renders different store states it renders when isLo
 </DocumentFragment>
 `;
 
-exports[`components > Random renders different store states it renders when isLoading === false && hasError === false && isFulfilled === true 1`] = `
+exports[`components > Random renders different store states when isLoading === false && hasError === false && isFulfilled === true 1`] = `
 <DocumentFragment>
   <div
     class="counter"
@@ -49,7 +49,7 @@ exports[`components > Random renders different store states it renders when isLo
 </DocumentFragment>
 `;
 
-exports[`components > Random renders different store states it renders when isLoading === false && hasError === true && isFulfilled === false 1`] = `
+exports[`components > Random renders different store states when isLoading === false && hasError === true && isFulfilled === false 1`] = `
 <DocumentFragment>
   <div
     class="counter"
@@ -72,7 +72,7 @@ exports[`components > Random renders different store states it renders when isLo
 </DocumentFragment>
 `;
 
-exports[`components > Random renders different store states it renders when isLoading === true && hasError === false && isFulfilled === false 1`] = `
+exports[`components > Random renders different store states when isLoading === true && hasError === false && isFulfilled === false 1`] = `
 <DocumentFragment>
   <div
     class="counter"
