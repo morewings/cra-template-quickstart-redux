@@ -87,7 +87,7 @@
   },
   "devDependencies": {
     "docz": "^2.3.1",
-    "recursive-copy": "^2.0.10",
+    "recursive-copy": "^2.0.11",
     "rimraf": "^3.0.2"
   }
 }
