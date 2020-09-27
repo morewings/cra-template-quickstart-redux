@@ -35,7 +35,10 @@ const scripts = cleanConfig({...pkg.scripts}, excludedScripts);
 const template = {
   package: {
     dependencies,
-    scripts,
+    scripts: {
+      prestart: 'node ./prepare.js',
+      ...scripts,
+    },
   },
 };
 

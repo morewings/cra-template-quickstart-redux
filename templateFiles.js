@@ -12,6 +12,7 @@ module.exports = {
     '.nvmrc',
     '.prettierrc',
     '.stylelintrc',
+    'prepare.js',
     'jsconfig.json',
     'README.md',
     'README_CRA.md',
