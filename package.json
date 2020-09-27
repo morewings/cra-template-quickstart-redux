@@ -65,13 +65,14 @@
     "eject": "react-scripts eject",
     "clean:files": "node ./cleanFiles.js",
     "copy:files": "node ./copyFiles.js",
-    "prepublishOnly": "yarn clean:files && yarn copy:files",
+    "prepublishOnly": "yarn clean:files && yarn copy:files && yarn write:template",
     "fix:js": "npx eslint --fix ./src/",
     "lint:js": "npx eslint ./src/",
     "lint:style": "npx stylelint ./src/",
     "fix:style": "npx stylelint ./src/ --fix",
     "start:docs": "docz dev",
-    "build:docs": "docz build"
+    "build:docs": "docz build",
+    "write:template": "node ./writeTemplateConfig.js"
   },
   "browserslist": {
     "production": [

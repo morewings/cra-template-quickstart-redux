@@ -9,6 +9,7 @@
 /coverage
 
 # template
+template.json
 /template/*
 /template/!gitignore
 

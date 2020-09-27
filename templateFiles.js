@@ -3,6 +3,7 @@ module.exports = {
     config: '.huskyrc',
     template: 'huskyrc-template',
   },
+  templateFile: 'template.json',
   templateDir: './template',
   files: [
     '.env',
@@ -11,6 +12,7 @@ module.exports = {
     '.nvmrc',
     '.prettierrc',
     '.stylelintrc',
+    'prepare.js',
     'jsconfig.json',
     'README.md',
     'README_CRA.md',
