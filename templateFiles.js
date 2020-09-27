@@ -3,6 +3,7 @@ module.exports = {
     config: '.huskyrc',
     template: 'huskyrc-template',
   },
+  templateFile: 'template.json',
   templateDir: './template',
   files: [
     '.env',

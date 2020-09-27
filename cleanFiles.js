@@ -1,5 +1,5 @@
 const rimraf = require('rimraf');
-const {files, husky, templateDir} = require('./templateFiles');
+const {files, husky, templateDir, templateFile} = require('./templateFiles');
 
 const cleanDir = () => {
   [...files, husky.template].forEach(path => {
@@ -9,6 +9,7 @@ const cleanDir = () => {
       console.error(err);
     }
   });
+  rimraf.sync(`${templateFile}`);
 };
 
 cleanDir();
