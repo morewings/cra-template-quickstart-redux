@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.2",
