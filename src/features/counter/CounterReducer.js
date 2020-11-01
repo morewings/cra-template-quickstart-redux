@@ -4,7 +4,7 @@ const initialState = {
   value: 0,
 };
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_COUNTER:
       return {...state, value: action.value};
@@ -13,3 +13,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

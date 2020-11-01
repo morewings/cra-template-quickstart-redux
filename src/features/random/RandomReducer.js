@@ -7,7 +7,7 @@ const initialState = {
   isFulfilled: false,
 };
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `${GET_RANDOM_NUMBER}_PENDING`:
       return {
@@ -38,3 +38,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;
