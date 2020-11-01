@@ -4,10 +4,6 @@ version: 1.0
 
 node_js: "10"
 
-cache:
-  npm: false
-  yarn: false
-
 script:
   - yarn lint:js
   - yarn lint:style
