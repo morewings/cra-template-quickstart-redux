@@ -1,6 +1,6 @@
 import React from 'react';
 import {useCountValue, useActions} from '../../features/counter';
-import classes from './Counter.module.css';
+import classes from './Counter.module.scss';
 
 const Counter = () => {
   /**
