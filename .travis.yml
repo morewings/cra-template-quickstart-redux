@@ -9,6 +9,7 @@ cache:
     - node_modules
 
 script:
+  - yarn build:style
   - yarn lint:js
   - yarn lint:style
   - yarn test
