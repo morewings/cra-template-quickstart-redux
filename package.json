@@ -38,7 +38,7 @@
     "@testing-library/user-event": "^12.2.0",
     "axios": "^0.21.0",
     "axios-mock-adapter": "^1.19.0",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-fp": "^2.3.0",
