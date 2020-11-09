@@ -31,7 +31,7 @@
   },
   "homepage": "https://cra-template-quickstart-redux.netlify.app",
   "dependencies": {
-    "@babel/runtime": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^3.4.2",
