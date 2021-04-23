@@ -10,8 +10,6 @@ Opinionated quickstart [Create React App](https://github.com/facebook/create-rea
 
 See [full documentation](https://cra-template-quickstart-redux.netlify.app).
 
-Original Create React App README available [here](./README_CRA.md)
-
 ## Usage
 
 ```shell script
