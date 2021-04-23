@@ -1,3 +1,3 @@
 export {default as RandomReducer} from './RandomReducer';
-export {default as useRandomAPI} from './selectors';
-export {default as useActions} from './actionCreators';
+export {useRandomNumber, useLoadingState} from './selectors';
+export {default as useGetRandomNumberQuery} from './useGetRandomNumberQuery';

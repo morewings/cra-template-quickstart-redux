@@ -7,9 +7,9 @@ import promise from 'redux-promise-middleware';
 import {renderHook} from '@testing-library/react-hooks';
 import config from '../../config';
 import {GET_RANDOM_NUMBER} from './actionTypes';
-import useActions from './actionCreators';
+import useGetRandomNumberQuery from './useGetRandomNumberQuery';
 
-describe('features > counter > useActions', () => {
+describe('features > counter > useGetRandomNumberQuery', () => {
   /** Create mock store with middlewares */
   const mockStore = configureStore([promise]);
 
@@ -26,14 +26,14 @@ describe('features > counter > useActions', () => {
      * Render hook, using testing-library utility
      * @see https://react-hooks-testing-library.com/reference/api#renderhook
      */
-    const {result} = renderHook(() => useActions(), {
+    const {result} = renderHook(() => useGetRandomNumberQuery(), {
       wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
     });
 
-    expect(result.current.getNumber).toBeInstanceOf(Function);
+    expect(result.current).toBeInstanceOf(Function);
   });
 
-  describe('getNumber', () => {
+  describe('gets number', () => {
     /**
      * Initialize axios mock adapter to mock API responses
      * @see https://github.com/ctimmerm/axios-mock-adapter
@@ -67,8 +67,8 @@ describe('features > counter > useActions', () => {
     });
 
     /** Note that tests functions are async */
-    it(`it handles successful API query`, async () => {
-      const {result} = renderHook(() => useActions(), {
+    it(`handles successful API query`, async () => {
+      const {result} = renderHook(() => useGetRandomNumberQuery(), {
         wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
       });
 
@@ -80,7 +80,7 @@ describe('features > counter > useActions', () => {
       /**
        * Wait until async action finishes
        */
-      await result.current.getNumber();
+      await result.current();
 
       /** First dispatched action should have _PENDING suffix */
       expect(store.getActions()[0]).toEqual({
@@ -101,7 +101,7 @@ describe('features > counter > useActions', () => {
       `it handles API fetching errors`,
       async mockResponse => {
         let hasThrown;
-        const {result} = renderHook(() => useActions(), {
+        const {result} = renderHook(() => useGetRandomNumberQuery(), {
           wrapper: ({children}) => (
             <Provider store={store}>{children}</Provider>
           ),
@@ -113,7 +113,7 @@ describe('features > counter > useActions', () => {
          * Use try/catch block, because await function will throw an error when request fails
          */
         try {
-          await result.current.getNumber();
+          await result.current();
         } catch {
           hasThrown = true; // eslint-disable-line fp/no-mutation
         } finally {
