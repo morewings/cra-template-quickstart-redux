@@ -2,9 +2,7 @@
   "extends": [
     "airbnb",
     "react-app",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    "prettier"
   ],
   "rules": {
     // Allow jsx tags inside .js files.
