@@ -1,5 +1,5 @@
 import React from 'react';
-import {useCountValue, useActions} from '../../features/counter';
+import {useCountValue, useIncrementCounter} from 'features/counter';
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -11,7 +11,7 @@ const Counter = () => {
   const count = useCountValue();
 
   /** Create incrementCounter action, using custom hook from feature */
-  const {incrementCounter} = useActions();
+  const incrementCounter = useIncrementCounter();
 
   return (
     <div className={classes.counter}>
