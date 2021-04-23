@@ -95,3 +95,26 @@ exports[`components > Random renders different store states when isLoading === t
   </div>
 </DocumentFragment>
 `;
+
+exports[`components > Random renders in pristine state, by default 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Click the button to get random number
+    </div>
+  </div>
+</DocumentFragment>
+`;

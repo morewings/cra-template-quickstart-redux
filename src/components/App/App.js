@@ -1,6 +1,6 @@
 import React from 'react';
-import Counter from '../Counter';
-import Random from '../Random';
+import Counter from 'components/Counter';
+import Random from 'components/Random';
 import classes from './App.module.css';
 
 const App = () => (

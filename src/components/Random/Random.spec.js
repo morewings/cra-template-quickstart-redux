@@ -5,9 +5,9 @@ import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import promise from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
-import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
+import {GET_RANDOM_NUMBER} from 'features/random/actionTypes';
+import config from 'config';
 import Random from './Random';
-import config from '../../config';
 
 describe('components > Random', () => {
   /**
@@ -65,6 +65,18 @@ describe('components > Random', () => {
     });
   });
 
+  it('renders in pristine state, by default', () => {
+    const store = {
+      random: {},
+    };
+    const {asFragment} = render(<Random />, {
+      wrapper: ({children}) => (
+        <Provider store={mockStore(store)}>{children}</Provider>
+      ),
+    });
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('dispatches an action sequence on button click', async () => {
     const store = mockStore({
       random: {
@@ -102,9 +114,9 @@ describe('components > Random', () => {
       expect(store.getActions()[1].type).toEqual(
         `${GET_RANDOM_NUMBER}_FULFILLED`
       );
-
-      /** Second dispatched action should deliver response from API */
-      expect(store.getActions()[1].payload.data).toEqual(response);
     });
+
+    /** Second dispatched action should deliver response from API */
+    expect(store.getActions()[1].payload.data).toEqual(response);
   });
 });
