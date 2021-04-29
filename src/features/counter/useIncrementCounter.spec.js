@@ -3,9 +3,9 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import {renderHook} from '@testing-library/react-hooks';
 import {INCREMENT_COUNTER} from './actionTypes';
-import useActions from './actionCreators';
+import useIncrementCounter from './useIncrementCounter';
 
-describe('features > counter > useActions', () => {
+describe('features > counter > useIncrementCounter', () => {
   /** Create mock store with the count value */
   const mockStore = configureStore([]);
   const value = 6;
@@ -39,20 +39,20 @@ describe('features > counter > useActions', () => {
      * Render hook, using testing-library utility
      * @see https://react-hooks-testing-library.com/reference/api#renderhook
      */
-    const {result} = renderHook(() => useActions(), {
+    const {result} = renderHook(() => useIncrementCounter(), {
       wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
     });
 
-    expect(result.current.incrementCounter).toBeInstanceOf(Function);
+    expect(result.current).toBeInstanceOf(Function);
   });
 
   describe('incrementCounter', () => {
     it('increments counter value by 1', () => {
-      const {result} = renderHook(() => useActions(), {
+      const {result} = renderHook(() => useIncrementCounter(), {
         wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
       });
 
-      result.current.incrementCounter();
+      result.current();
 
       /** store.dispatch should be run once */
       expect(store.dispatch).toHaveBeenCalledTimes(1);

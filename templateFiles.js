@@ -15,7 +15,6 @@ module.exports = {
     'prepare.js',
     'jsconfig.json',
     'README.md',
-    'README_CRA.md',
     'public',
     'src',
   ],

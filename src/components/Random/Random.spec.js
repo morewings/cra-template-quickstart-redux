@@ -1,27 +1,41 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {render, fireEvent, waitFor} from '@testing-library/react';
+import {
+  render,
+  fireEvent,
+  waitFor,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import promise from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
-import {GET_RANDOM_NUMBER} from '../../features/random/actionTypes';
+import {GET_RANDOM_NUMBER} from 'features/random/actionTypes';
+import config from 'config';
+import {store as realStore} from 'withReduxFeatures';
 import Random from './Random';
-import config from '../../config';
+
+/**
+ * Create mock store
+ * @see https://github.com/dmitry-zaets/redux-mock-store
+ */
+const mockStore = configureStore([promise]);
+
+/**
+ * Initialize axios mock adapter to mock API responses
+ * @see https://github.com/ctimmerm/axios-mock-adapter
+ */
+const mockAxios = new MockAdapter(axios);
+
+/* We use these strings to match HTMLElements */
+const pristineText = 'Click the button to get random number';
+const loadingText = 'Getting number';
+const errorText = 'Ups...';
+
+const response = 6;
 
 describe('components > Random', () => {
-  /**
-   * Create mock store
-   * @see https://github.com/dmitry-zaets/redux-mock-store
-   */
-  const mockStore = configureStore([promise]);
-
-  /**
-   * Initialize axios mock adapter to mock API responses
-   * @see https://github.com/ctimmerm/axios-mock-adapter
-   */
-  const mockAxios = new MockAdapter(axios);
-
   beforeEach(() => {
     mockAxios.resetHandlers();
   });
@@ -65,6 +79,38 @@ describe('components > Random', () => {
     });
   });
 
+  it('it shows loading div when user clicks button and then displays data after request succeeds', async () => {
+    /** Mock successful response from API */
+    mockAxios.onGet(config.randomAPI).reply(200, response);
+
+    /**
+     * `getByRole`:
+     * @see https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+     */
+    const {asFragment, getByRole} = render(<Random />, {
+      wrapper: ({children}) => (
+        /* We use real store here, to get action through */
+        <Provider store={realStore}>{children}</Provider>
+      ),
+    });
+
+    /**
+     * Search for the button and make testing library click on it
+     * @see https://testing-library.com/docs/react-testing-library/cheatsheet#events
+     */
+    fireEvent.click(getByRole('button'));
+
+    expect(asFragment()).toMatchSnapshot();
+    expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
+    expect(screen.queryByText(loadingText)).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(() => screen.queryByText(loadingText));
+    expect(asFragment()).toMatchSnapshot();
+    expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
+    expect(screen.queryByText(loadingText)).not.toBeInTheDocument();
+    expect(screen.queryByText(response)).toBeInTheDocument();
+  });
+
   it('dispatches an action sequence on button click', async () => {
     const store = mockStore({
       random: {
@@ -75,7 +121,6 @@ describe('components > Random', () => {
     });
 
     /** Mock response from API */
-    const response = 6;
     mockAxios.onGet(config.randomAPI).reply(200, response);
 
     /**
@@ -102,9 +147,9 @@ describe('components > Random', () => {
       expect(store.getActions()[1].type).toEqual(
         `${GET_RANDOM_NUMBER}_FULFILLED`
       );
-
-      /** Second dispatched action should deliver response from API */
-      expect(store.getActions()[1].payload.data).toEqual(response);
     });
+
+    /** Second dispatched action should deliver response from API */
+    expect(store.getActions()[1].payload.data).toEqual(response);
   });
 });

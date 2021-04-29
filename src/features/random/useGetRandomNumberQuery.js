@@ -1,12 +1,12 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import axios from 'axios';
-import config from '../../config';
+import config from 'config';
 import {GET_RANDOM_NUMBER} from './actionTypes';
 
-const useActions = () => {
+const useGetRandomNumberQuery = () => {
   const dispatch = useDispatch();
-  const getNumber = useCallback(
+  return useCallback(
     () =>
       dispatch({
         type: GET_RANDOM_NUMBER,
@@ -14,7 +14,6 @@ const useActions = () => {
       }),
     [dispatch]
   );
-  return {getNumber};
 };
 
-export default useActions;
+export default useGetRandomNumberQuery;

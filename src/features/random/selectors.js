@@ -1,9 +1,13 @@
 import {useSelector} from 'react-redux';
 
 /**
- * Custom React Hook to get random.org API response from state.
+ * Custom React Hooks to get random.org API loading state and response from the state.
+ *
  * @see https://reactjs.org/docs/hooks-custom.html
  */
-const useRandomAPI = () => useSelector(state => state.random);
+export const useLoadingState = () => {
+  const {isLoading, hasError, isFulfilled} = useSelector(state => state.random);
+  return {isLoading, hasError, isFulfilled};
+};
 
-export default useRandomAPI;
+export const useRandomNumber = () => useSelector(state => state.random.number);

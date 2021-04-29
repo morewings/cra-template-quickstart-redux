@@ -10,8 +10,6 @@ Opinionated quickstart [Create React App](https://github.com/facebook/create-rea
 
 See [full documentation](https://cra-template-quickstart-redux.netlify.app).
 
-Original Create React App README available [here](./README_CRA.md)
-
 ## Usage
 
 ```shell script
@@ -344,3 +342,27 @@ You can use source folder relative paths for imports. `import Component from './
     ├── withProvider.js # utility to generate Provider components
     └── withReduxFeatures.js # Redux store HOC
 ```
+
+## Feature architecture
+
+Feature is a minimal working set of code capable of performing business logic task (e.g. event tracking, shopping basket etc). From the architectural point of view feature is [ES Module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). Exports of the module (see `index.js` in each folder) define feature's public interface.
+
+Features live in the `src/features` folder.
+
+### Feature interface
+
+All possible exports from the feature module can be divided in two groups:
+
+1. **Selectors** return data from the feature state or external source.
+2. **Action creators** mutate data inside feature state or perform externally applied actions (ajax requests, websocket messages etc).
+
+Both groups are implemented as React hooks.
+
+### Rules and limitations
+
+1. Each folder has `index.js` file which contains all `public` methods of this feature. Please do not import directly from feature files. They considered to be `private` methods.
+2. In order to avoid **circular dependencies** don't use own `index.js` defined exports inside module, use relative imports instead.
+3. Features may depend on other features existing using public interface.
+4. Features' hooks may and should be used in React components. Please avoid making React components too smart in terms of business logic. Use features instead.
+5. Some features may require internal state. State management is provided by Redux.
+6. Though Redux state is not mandatory for the feature. Some features may only depend on external sources (ajax endpoints, URL parameters etc).

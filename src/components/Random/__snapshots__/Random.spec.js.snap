@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components > Random it shows loading div when user clicks button and then displays data after request succeeds 1`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      disabled=""
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Getting number
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components > Random it shows loading div when user clicks button and then displays data after request succeeds 2`] = `
+<DocumentFragment>
+  <div
+    class="counter"
+  >
+    <h2
+      class="header"
+    >
+      Async Random
+    </h2>
+    <button
+      class="button"
+      type="button"
+    >
+      Get random number
+    </button>
+    <div>
+      Number from random.org: 
+      <strong>
+        6
+      </strong>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`components > Random renders different store states when isLoading === false && hasError === false && isFulfilled === false 1`] = `
 <DocumentFragment>
   <div

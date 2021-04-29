@@ -1,15 +1,20 @@
 import React from 'react';
-import {useActions, useRandomAPI} from '../../features/random';
+import {
+  useGetRandomNumberQuery,
+  useRandomNumber,
+  useLoadingState,
+} from 'features/random';
 import classes from './Random.module.css';
 
 const Random = () => {
-  /**
-   *  Get number, returned  from random.org, and the state of request from Redux store.
-   */
-  const {number, isLoading, hasError, isFulfilled} = useRandomAPI();
+  /** Loading state of random.org request from Redux store */
+  const {isLoading, hasError, isFulfilled} = useLoadingState();
+
+  /** Random number value */
+  const number = useRandomNumber();
 
   /** Create incrementCounter action, using custom hook from feature */
-  const {getNumber} = useActions();
+  const getNumber = useGetRandomNumberQuery();
 
   /** Define pristine state condition, when user didn't do any actions */
   const isPristine = !isLoading && !hasError && !isFulfilled;
