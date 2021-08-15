@@ -1,14 +1,25 @@
 ---
-name: 'Install'
-route: '/install'
----
+
+import {Meta} from '@storybook/addon-docs';
+
+<Meta
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {hidden: true},
+    },
+  }}
+  title="Install"
+/>
 
 # Install
 
 ```shell script
 npx create-react-app %PROJECT_NAME% --template quickstart-redux
 ```
+
 Or
+
 ```shell script
 yarn create react-app %PROJECT_NAME% --template quickstart-redux
 ```

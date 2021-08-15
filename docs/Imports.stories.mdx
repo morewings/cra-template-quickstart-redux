@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {hidden: true},
+    },
+  }}
+  title="Absolute imports"
+/>
+
+# Absolute imports
+
+You can use source folder relative paths for imports. `import Component from './../../../../../../src/components/Component'` becomes `import Component from 'components/Component'`. Configuration is inside `jsconfig.json` file. You will love it 💖!
