@@ -55,7 +55,7 @@
     "redux": "^4.1.0",
     "redux-mock-store": "^1.5.4",
     "redux-promise-middleware": "^6.1.2",
-    "stylelint": "^13.13.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0"
   },
