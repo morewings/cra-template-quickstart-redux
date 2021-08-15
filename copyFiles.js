@@ -1,12 +1,9 @@
 const copy = require('recursive-copy');
-const {files, husky, templateDir} = require('./templateFiles');
+const {files, templateDir} = require('./templateFiles');
 
 const copyFiles = () => {
-  [...files, husky.config].forEach(async path => {
-    const destination =
-      path !== husky.config
-        ? `${templateDir}/${path}`
-        : `${templateDir}/${husky.template}`;
+  [...files].forEach(async path => {
+    const destination = `${templateDir}/${path}`;
     try {
       await copy(path, destination, {
         overwrite: true,
@@ -17,4 +14,15 @@ const copyFiles = () => {
   });
 };
 
+const renameGitignore = async () => {
+  try {
+    await copy('.gitignore', `${templateDir}/gitignore`, {
+      overwrite: true,
+    });
+  } catch (e) {
+    console.warn('can`t copy gitignore', e);
+  }
+};
+
 copyFiles();
+renameGitignore();

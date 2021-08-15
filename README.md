@@ -47,7 +47,7 @@ Thus every time you commit something `husky` will run `eslint --fix` command  on
 
 ### Caveats
 
-- If pre-commit hooks not work (e. g. your code is not linted after commit), run ``yarn add husky`` in your project folder.
+- If pre-commit hooks not work (e. g. your code is not linted after commit), run ``yarn prepare`` in your project folder.
 
 - You need to [update snapshots](https://jestjs.io/docs/en/snapshot-testing#updating-snapshots) and fix failing tests to be able to commit or push your code.
 
