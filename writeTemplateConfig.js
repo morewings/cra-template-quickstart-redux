@@ -36,7 +36,7 @@ const template = {
   package: {
     dependencies,
     scripts: {
-      prestart: 'node ./prepare.js',
+      prepare: 'husky install',
       ...scripts,
     },
   },

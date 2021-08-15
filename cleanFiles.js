@@ -1,8 +1,8 @@
 const rimraf = require('rimraf');
-const {files, husky, templateDir, templateFile} = require('./templateFiles');
+const {files, templateDir, templateFile} = require('./templateFiles');
 
 const cleanDir = () => {
-  [...files, husky.template].forEach(path => {
+  [...files].forEach(path => {
     try {
       rimraf.sync(`${templateDir}/${path}`);
     } catch (err) {
