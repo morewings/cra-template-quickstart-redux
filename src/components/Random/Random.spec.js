@@ -31,7 +31,6 @@ const mockAxios = new MockAdapter(axios);
 /* We use these strings to match HTMLElements */
 const pristineText = 'Click the button to get random number';
 const loadingText = 'Getting number';
-const errorText = 'Ups...';
 
 const response = 6;
 
