@@ -26,5 +26,4 @@ template.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.docz
-docz-dist
+storybook-static

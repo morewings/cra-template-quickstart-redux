@@ -27,7 +27,7 @@ deploy:
   - provider: netlify
     site: cra-template-quickstart-redux.netlify.com
     auth: "$NETLIFY_TOKEN"
-    dir: docz-dist
+    dir: storybook-static
     prod: true
     cleanup: false
     edge: true
