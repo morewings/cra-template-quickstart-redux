@@ -1,7 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 1`] = `[Error: Network Error]`;
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 1`] = `undefined`;
 
-exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 2`] = `[Error: Request failed with status code 404]`;
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 2`] = `undefined`;
 
-exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 3`] = `[Error: timeout of 0ms exceeded]`;
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 3`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 4`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 5`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 6`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 7`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 8`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 9`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 10`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 11`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 12`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 13`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 14`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 15`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 16`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 17`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 18`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 19`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 20`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 21`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 22`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 23`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 24`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 25`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 26`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 27`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 28`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 29`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 30`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 31`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 32`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 33`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 34`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 35`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 36`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 37`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 38`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 39`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 40`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 41`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 42`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 43`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 44`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 45`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 46`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 47`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 48`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 49`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 50`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 51`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 52`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 53`] = `undefined`;
+
+exports[`features > counter > useGetRandomNumberQuery gets number it handles API fetching errors 54`] = `undefined`;

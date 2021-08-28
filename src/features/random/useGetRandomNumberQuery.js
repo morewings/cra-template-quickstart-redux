@@ -11,6 +11,7 @@ const useGetRandomNumberQuery = () => {
       dispatch({
         type: GET_RANDOM_NUMBER,
         payload: axios.get(config.randomAPI),
+        payloadTest: axios.get(config.randomAPI),
       }),
     [dispatch]
   );
