@@ -16,7 +16,6 @@ export const promiseResolverMiddleware = store => next => action => {
       });
     },
     () => {
-      console.log('error!!!!!');
       store.dispatch({
         type: `${action.type}_REJECTED`,
       });
