@@ -31,6 +31,8 @@ describe('promiseResolverMiddleware', () => {
     store.dispatch(action);
     /**
      * _PENDING action should run immediately, no need for async here.
+     * store.getActions() returns array of actions dispatched
+     * @see https://github.com/reduxjs/redux-mock-store#api
      */
     expect(store.getActions()[0]).toEqual({type: `${action.type}_PENDING`});
   });
@@ -47,6 +49,9 @@ describe('promiseResolverMiddleware', () => {
      * @see https://testing-library.com/docs/dom-testing-library/api-async/#waitfor
      */
     await waitFor(() =>
+      /**
+       * Check for 2nd action, since 1st is _PENDING.
+       */
       expect(store.getActions()[1]).toEqual({
         type: `${action.type}_FULFILLED`,
         payload: response,
@@ -65,6 +70,9 @@ describe('promiseResolverMiddleware', () => {
      * @see https://testing-library.com/docs/dom-testing-library/api-async/#waitfor
      */
     await waitFor(() =>
+      /**
+       * Check for 2nd action, since 1st is _PENDING.
+       */
       expect(store.getActions()[1]).toEqual({
         type: `${action.type}_REJECTED`,
       })
