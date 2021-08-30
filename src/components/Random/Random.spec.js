@@ -222,7 +222,7 @@ describe('components > Random', () => {
     });
 
     await waitFor(() => {
-      /** Second dispatched action should have _FULFILLED suffix */
+      /** Second dispatched action should have _REJECTED suffix */
       expect(store.getActions()[1].type).toEqual(
         `${GET_RANDOM_NUMBER}_REJECTED`
       );
