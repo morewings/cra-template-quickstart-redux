@@ -1,17 +1,18 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import configureStore from 'redux-mock-store';
-import promise from 'redux-promise-middleware';
+import {waitFor} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
-import config from '../../config';
+import {promiseResolverMiddleware} from '../../middlewares/promiseResolverMiddleware';
 import {GET_RANDOM_NUMBER} from './actionTypes';
 import useGetRandomNumberQuery from './useGetRandomNumberQuery';
 
+jest.mock('axios');
+
 describe('features > counter > useGetRandomNumberQuery', () => {
   /** Create mock store with middlewares */
-  const mockStore = configureStore([promise]);
+  const mockStore = configureStore([promiseResolverMiddleware]);
 
   const store = mockStore({
     random: {
@@ -34,35 +35,7 @@ describe('features > counter > useGetRandomNumberQuery', () => {
   });
 
   describe('gets number', () => {
-    /**
-     * Initialize axios mock adapter to mock API responses
-     * @see https://github.com/ctimmerm/axios-mock-adapter
-     */
-    const mockAxios = new MockAdapter(axios);
-
-    /**
-     * Mock network error response
-     */
-    const mockNetworkError = () => {
-      mockAxios.onGet(config.randomAPI).networkError();
-    };
-
-    /**
-     * Mock 404 response
-     */
-    const mock404 = () => {
-      mockAxios.onGet(config.randomAPI).reply(404);
-    };
-
-    /**
-     * Mock network timeout
-     */
-    const mockTimeout = () => {
-      mockAxios.onGet(config.randomAPI).timeout();
-    };
-
     afterEach(() => {
-      mockAxios.resetHandlers();
       store.clearActions();
     });
 
@@ -75,7 +48,11 @@ describe('features > counter > useGetRandomNumberQuery', () => {
       /** Mock response from API */
       const response = 6;
 
-      mockAxios.onGet(config.randomAPI).reply(200, response);
+      /**
+       * Mock axios successful response
+       * @see https://www.robinwieruch.de/axios-jest
+       */
+      axios.get.mockImplementationOnce(() => Promise.resolve({data: response}));
 
       /**
        * Wait until async action finishes
@@ -87,47 +64,43 @@ describe('features > counter > useGetRandomNumberQuery', () => {
         type: `${GET_RANDOM_NUMBER}_PENDING`,
       });
 
-      /** Second dispatched action should have _FULFILLED suffix */
-      expect(store.getActions()[1].type).toEqual(
-        `${GET_RANDOM_NUMBER}_FULFILLED`
-      );
-
-      /** Second dispatched action should deliver response from API */
-      expect(store.getActions()[1].payload.data).toEqual(response);
+      await waitFor(() => {
+        /** Second dispatched action should have _FULFILLED suffix */
+        expect(store.getActions()[1].type).toEqual(
+          `${GET_RANDOM_NUMBER}_FULFILLED`
+        );
+        /** Second dispatched action should deliver response from API */
+        expect(store.getActions()[1].payload.data).toEqual(response);
+      });
     });
 
-    /** Iterate through different API error cases */
-    it.each([[mockNetworkError], [mock404], [mockTimeout]])(
-      `it handles API fetching errors`,
-      async mockResponse => {
-        let hasThrown;
-        const {result} = renderHook(() => useGetRandomNumberQuery(), {
-          wrapper: ({children}) => (
-            <Provider store={store}>{children}</Provider>
-          ),
-        });
+    it(`handles rejected API query`, async () => {
+      const {result} = renderHook(() => useGetRandomNumberQuery(), {
+        wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
+      });
 
-        mockResponse();
+      /**
+       * Mock axios rejected response
+       * @see https://www.robinwieruch.de/axios-jest
+       */
+      axios.get.mockImplementationOnce(() => Promise.reject(new Error('')));
 
-        /**
-         * Use try/catch block, because await function will throw an error when request fails
-         */
-        try {
-          await result.current();
-        } catch {
-          hasThrown = true; // eslint-disable-line fp/no-mutation
-        } finally {
-          expect(store.getActions()[0]).toEqual({
-            type: `${GET_RANDOM_NUMBER}_PENDING`,
-          });
-          expect(store.getActions()[1].type).toEqual(
-            `${GET_RANDOM_NUMBER}_REJECTED`
-          );
-          expect(store.getActions()[1].payload).toBeInstanceOf(Error);
-          expect(store.getActions()[1].payload).toMatchSnapshot();
-          expect(hasThrown).toBe(true);
-        }
-      }
-    );
+      /**
+       * Wait until async action finishes
+       */
+      await result.current();
+
+      /** First dispatched action should have _PENDING suffix */
+      expect(store.getActions()[0]).toEqual({
+        type: `${GET_RANDOM_NUMBER}_PENDING`,
+      });
+
+      await waitFor(() => {
+        /** Second dispatched action should have _REJECTED suffix */
+        expect(store.getActions()[1].type).toEqual(
+          `${GET_RANDOM_NUMBER}_REJECTED`
+        );
+      });
+    });
   });
 });

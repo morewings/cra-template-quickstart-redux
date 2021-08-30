@@ -7,39 +7,28 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
-import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import promise from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
 import {GET_RANDOM_NUMBER} from 'features/random/actionTypes';
-import config from 'config';
 import {store as realStore} from 'withReduxFeatures';
+import {promiseResolverMiddleware} from '../../middlewares/promiseResolverMiddleware';
 import Random from './Random';
 
 /**
  * Create mock store
  * @see https://github.com/dmitry-zaets/redux-mock-store
  */
-const mockStore = configureStore([promise]);
+const mockStore = configureStore([promiseResolverMiddleware]);
 
-/**
- * Initialize axios mock adapter to mock API responses
- * @see https://github.com/ctimmerm/axios-mock-adapter
- */
-const mockAxios = new MockAdapter(axios);
+jest.mock('axios');
 
 /* We use these strings to match HTMLElements */
 const pristineText = 'Click the button to get random number';
 const loadingText = 'Getting number';
 const errorText = 'Ups...';
-
 const response = 6;
 
 describe('components > Random', () => {
-  beforeEach(() => {
-    mockAxios.resetHandlers();
-  });
-
   /**
    * Provide table of values to run tests with
    * @see https://jestjs.io/docs/en/api#describeeachtablename-fn-timeout
@@ -79,9 +68,12 @@ describe('components > Random', () => {
     });
   });
 
-  it('it shows loading div when user clicks button and then displays data after request succeeds', async () => {
-    /** Mock successful response from API */
-    mockAxios.onGet(config.randomAPI).reply(200, response);
+  it('handles successful request', async () => {
+    /**
+     * Mock axios successful response
+     * @see https://www.robinwieruch.de/axios-jest
+     */
+    axios.get.mockImplementationOnce(() => Promise.resolve({data: response}));
 
     /**
      * `getByRole`:
@@ -100,10 +92,12 @@ describe('components > Random', () => {
      */
     fireEvent.click(getByRole('button'));
 
+    /** Check that initial message has changed to loading. */
     expect(asFragment()).toMatchSnapshot();
     expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
     expect(screen.queryByText(loadingText)).toBeInTheDocument();
 
+    /** Check that loading message has changed to success. */
     await waitForElementToBeRemoved(() => screen.queryByText(loadingText));
     expect(asFragment()).toMatchSnapshot();
     expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
@@ -111,7 +105,44 @@ describe('components > Random', () => {
     expect(screen.queryByText(response)).toBeInTheDocument();
   });
 
-  it('dispatches an action sequence on button click', async () => {
+  it('handles rejected request', async () => {
+    /**
+     * Mock axios rejected response
+     * @see https://www.robinwieruch.de/axios-jest
+     */
+    axios.get.mockImplementationOnce(() => Promise.reject(new Error('')));
+
+    /**
+     * `getByRole`:
+     * @see https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+     */
+    const {asFragment, getByRole} = render(<Random />, {
+      wrapper: ({children}) => (
+        /* We use real store here, to get action through */
+        <Provider store={realStore}>{children}</Provider>
+      ),
+    });
+
+    /**
+     * Search for the button and make testing library click on it
+     * @see https://testing-library.com/docs/react-testing-library/cheatsheet#events
+     */
+    fireEvent.click(getByRole('button'));
+
+    /** Check that initial message has changed to loading. */
+    expect(asFragment()).toMatchSnapshot();
+    expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
+    expect(screen.queryByText(loadingText)).toBeInTheDocument();
+
+    /** Check that loading message has changed to error. */
+    await waitForElementToBeRemoved(() => screen.queryByText(loadingText));
+    expect(asFragment()).toMatchSnapshot();
+    expect(screen.queryByText(pristineText)).not.toBeInTheDocument();
+    expect(screen.queryByText(loadingText)).not.toBeInTheDocument();
+    expect(screen.queryByText(errorText)).toBeInTheDocument();
+  });
+
+  it('dispatches an action sequence on successful request made', async () => {
     const store = mockStore({
       random: {
         isLoading: false,
@@ -120,8 +151,11 @@ describe('components > Random', () => {
       },
     });
 
-    /** Mock response from API */
-    mockAxios.onGet(config.randomAPI).reply(200, response);
+    /**
+     * Mock axios successful response
+     * @see https://www.robinwieruch.de/axios-jest
+     */
+    axios.get.mockImplementationOnce(() => Promise.resolve({data: response}));
 
     /**
      * `getByRole`:
@@ -151,5 +185,47 @@ describe('components > Random', () => {
 
     /** Second dispatched action should deliver response from API */
     expect(store.getActions()[1].payload.data).toEqual(response);
+  });
+
+  it('dispatches an action sequence on rejected request made', async () => {
+    const store = mockStore({
+      random: {
+        isLoading: false,
+        hasError: false,
+        isFulfilled: false,
+      },
+    });
+
+    /**
+     * Mock axios rejected response
+     * @see https://www.robinwieruch.de/axios-jest
+     */
+    axios.get.mockImplementationOnce(() => Promise.reject(new Error('')));
+
+    /**
+     * `getByRole`:
+     * @see https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+     */
+    const {getByRole} = render(<Random />, {
+      wrapper: ({children}) => <Provider store={store}>{children}</Provider>,
+    });
+
+    /**
+     * Search for the button and make testing library click on it
+     * @see https://testing-library.com/docs/react-testing-library/cheatsheet#events
+     */
+    fireEvent.click(getByRole('button'));
+
+    /** First dispatched action should have _PENDING suffix */
+    expect(store.getActions()[0]).toEqual({
+      type: `${GET_RANDOM_NUMBER}_PENDING`,
+    });
+
+    await waitFor(() => {
+      /** Second dispatched action should have _FULFILLED suffix */
+      expect(store.getActions()[1].type).toEqual(
+        `${GET_RANDOM_NUMBER}_REJECTED`
+      );
+    });
   });
 });
