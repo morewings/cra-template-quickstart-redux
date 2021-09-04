@@ -43,7 +43,6 @@ describe('persistStateEnhancer', () => {
     localStorage.setItem(path, JSON.stringify('BUZZ'));
     /** Create new store for this test to catch localStorage changes from above */
     store = createStore(mockReducer, undefined, composedEnhancers);
-    store.dispatch({type: ''});
     expect(store.getState()).toBe('BUZZ');
   });
 

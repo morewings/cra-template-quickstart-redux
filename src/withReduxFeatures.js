@@ -21,14 +21,24 @@ const rootReducer = combineReducers({
 /* eslint-disable-next-line no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-/** Create Redux store with root reducer and middleware included */
+/** Compose middlewares into enhancer. You can list multiple middlewares here as arguments to applyMiddleware. */
 const middlewareEnhancer = applyMiddleware(promiseResolverMiddleware);
 
+/**
+ * Compose multiple store enhancers into one.
+ * @see https://redux.js.org/api/createstore
+ */
 const composedEnhancers = composeEnhancers(
+  /** Note that middlewareEnhancer is included here. */
   middlewareEnhancer,
-  persistStateEnhancer()
+  /** It's possible to configure enhancer by providing arguments. */
+  persistStateEnhancer('reduxExample')
 );
 
+/**
+ * Create Redux store using above artifacts.
+ * @see https://redux.js.org/api/createstore
+ */
 export const store = createStore(rootReducer, undefined, composedEnhancers);
 
 /**
