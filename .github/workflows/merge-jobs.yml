@@ -28,8 +28,8 @@ jobs:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
       - name: Run yarn tasks
         run: |
-          yarn
-          yarn build
+          yarn --silent
+          yarn build --silent
       - name: Publish NPM package
         uses: JS-DevTools/npm-publish@v1
         with:

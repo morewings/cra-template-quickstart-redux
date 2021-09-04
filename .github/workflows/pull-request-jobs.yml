@@ -30,9 +30,9 @@ jobs:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
       - name: Run yarn tasks
         run: |
-          yarn
-          yarn lint:js
-          yarn lint:style
-          yarn test
+          yarn --silent
+          yarn lint:js --quiet
+          yarn lint:style --quiet
+          yarn test --silent
           yarn start --smoke-test
-          yarn start:docs --smoke-test
+          yarn start:docs --smoke-test --quiet
