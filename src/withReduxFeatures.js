@@ -35,7 +35,6 @@ const composedEnhancers = composeEnhancers(
   persistStateEnhancer('reduxExample')
 );
 
-
 /**
  * Create Redux store using above artifacts.
  * @see https://redux.js.org/api/createstore
