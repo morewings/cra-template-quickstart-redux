@@ -30,4 +30,8 @@ jobs:
         run: |
           yarn
           yarn build
-          yarn build:docs
+      - name: Publish NPM package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          dry-run: true
