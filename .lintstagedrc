@@ -1,8 +1,8 @@
 {
   "*.js": [
-    "eslint --fix"
+    "eslint --fix --quiet"
   ],
   "*.css": [
-    "stylelint --fix"
+    "stylelint --fix --quiet"
   ]
 }
