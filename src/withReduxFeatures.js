@@ -1,5 +1,6 @@
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
+import {persistStateEnhancer} from './enhancers/persistStateEnhancer';
 import {promiseResolverMiddleware} from './middlewares/promiseResolverMiddleware';
 import {CounterReducer} from './features/counter';
 import {RandomReducer} from './features/random';
@@ -15,19 +16,20 @@ const rootReducer = combineReducers({
 });
 
 /**
- * Initialize Redux Dev Tools,
- * if they are installed in browser.
+ * Use Redux Dev Tools, if they are installed in browser, otherwise compose from Redux
  */
-/* eslint-disable no-underscore-dangle */
-/** Use Redux compose, if browser doesn't have Redux devtools */
+/* eslint-disable-next-line no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-/* eslint-enable */
 
 /** Create Redux store with root reducer and middleware included */
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(promiseResolverMiddleware))
+const middlewareEnhancer = applyMiddleware(promiseResolverMiddleware);
+
+const composedEnhancers = composeEnhancers(
+  middlewareEnhancer,
+  persistStateEnhancer()
 );
+
+export const store = createStore(rootReducer, undefined, composedEnhancers);
 
 /**
  * Create HOC, which wraps given Component with Redux Provider
