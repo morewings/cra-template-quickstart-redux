@@ -4,8 +4,8 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -34,5 +34,5 @@ jobs:
           yarn lint:js
           yarn lint:style
           yarn test
-          yarn build
-          yarn build:docs
+          yarn start --smoke-test
+          yarn start:docs --smoke-test
