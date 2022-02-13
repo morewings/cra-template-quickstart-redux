@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "description": "Opinionated quickstart Create React App template with Redux, React Testing Library and custom eslint and stylelint configurations",
   "main": "template.json",
@@ -87,25 +87,12 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.4.9",
-    "@storybook/addon-links": "^6.4.17",
-    "@storybook/node-logger": "^6.3.7",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.4.9",
-    "recursive-copy": "^2.0.13",
-    "rimraf": "^3.0.2"
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
+    "@storybook/addon-actions": "6.4.19",
+    "@storybook/addon-essentials": "6.4.19",
+    "@storybook/addon-links": "6.4.19",
+    "@storybook/node-logger": "6.4.19",
+    "@storybook/react": "6.4.19",
+    "recursive-copy": "2.0.13",
+    "rimraf": "3.0.2"
   }
 }
