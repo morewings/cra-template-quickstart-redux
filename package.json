@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/morewings/cra-template-quickstart-redux/issues"
   },
-  "homepage": "https://cra-template-quickstart-redux.netlify.app",
+  "homepage": "https://github.com/morewings/cra-template-quickstart-redux/wiki",
   "dependencies": {
     "@babel/runtime": "^7.19.0",
     "@testing-library/jest-dom": "^5.16.5",
