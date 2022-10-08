@@ -29,7 +29,6 @@ jobs:
       - name: Run yarn tasks
         run: |
           yarn --silent
-          yarn build --silent
       - name: Publish NPM package
         uses: JS-DevTools/npm-publish@v1
         with:
