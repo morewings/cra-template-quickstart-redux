@@ -22,7 +22,7 @@
   font-size: 16px;
   margin: 0 auto 24px;
   padding: 12px 24px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
 }
 
 .button:active {
