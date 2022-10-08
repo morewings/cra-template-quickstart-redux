@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/morewings/cra-template-quickstart-redux/issues"
   },
-  "homepage": "https://cra-template-quickstart-redux.netlify.app",
+  "homepage": "https://github.com/morewings/cra-template-quickstart-redux/wiki",
   "dependencies": {
     "@babel/runtime": "^7.19.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -69,10 +69,8 @@
     "lint:js": "npx eslint ./src/",
     "lint:style": "npx stylelint ./src/",
     "fix:style": "npx stylelint ./src/ --fix",
-    "start:docs": "start-storybook -p 6006 -s public",
-    "build:docs": "build-storybook -s public",
     "write:template": "node ./writeTemplateConfig.js",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "browserslist": {
     "production": [
@@ -87,11 +85,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.4.19",
-    "@storybook/addon-essentials": "6.4.19",
-    "@storybook/addon-links": "6.5.12",
-    "@storybook/node-logger": "6.4.19",
-    "@storybook/react": "6.4.19",
+    "is-ci": "^3.0.1",
     "recursive-copy": "2.0.14",
     "rimraf": "3.0.2"
   }
