@@ -35,4 +35,3 @@ jobs:
           yarn lint:style --quiet
           yarn test --silent
           yarn start --smoke-test
-          yarn start:docs --smoke-test --quiet
