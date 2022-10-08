@@ -70,9 +70,7 @@
     "lint:style": "npx stylelint ./src/",
     "fix:style": "npx stylelint ./src/ --fix",
     "write:template": "node ./writeTemplateConfig.js",
-    "prepare": "is-ci || husky install",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "prepare": "is-ci || husky install"
   },
   "browserslist": {
     "production": [
@@ -87,7 +85,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
     "is-ci": "^3.0.1",
     "recursive-copy": "2.0.14",
     "rimraf": "3.0.2"
