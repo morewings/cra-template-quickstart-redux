@@ -28,7 +28,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: c-hive/gha-yarn-cache@v1
       - name: Checkout
         uses: actions/checkout@v3
       - name: Cancel Previous Runs
@@ -43,6 +42,7 @@ jobs:
         with:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
       - name: Run yarn tasks
+        uses: c-hive/gha-yarn-cache@v1
         run: |
           yarn --silent
           yarn build --silent
