@@ -53,9 +53,10 @@
     "react-test-renderer": "^17.0.2",
     "redux": "^4.2.0",
     "redux-mock-store": "^1.5.4",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0"
+    "stylelint": "^14.13.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-order": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -67,8 +68,8 @@
     "prepublishOnly": "yarn clean:files && yarn copy:files && yarn write:template",
     "fix:js": "npx eslint --fix ./src/",
     "lint:js": "npx eslint ./src/",
-    "lint:style": "npx stylelint ./src/",
-    "fix:style": "npx stylelint ./src/ --fix",
+    "lint:style": "npx stylelint ./src/**/*.css",
+    "fix:style": "yarn lint:style --fix",
     "write:template": "node ./writeTemplateConfig.js",
     "prepare": "is-ci || husky install"
   },
