@@ -27,7 +27,7 @@ import {useIncrementCounter} from 'features/counter';
 // Needs to be run from inside React component or other hook.
 const incrementCounter = useIncrementCounter();
 const handleClick = () => {
-  useIncrementCounter();
+  incrementCounter();
 }
 ```
 
