@@ -1,5 +1,4 @@
 [![Build Status](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml)
-[![dependencies Status](https://david-dm.org/morewings/cra-template-quickstart-redux/status.svg)](https://david-dm.org/morewings/cra-template-quickstart-redux)
 [![npm version](https://badge.fury.io/js/cra-template-quickstart-redux.svg)](https://www.npmjs.com/package/cra-template-quickstart-redux)
 [![npm](https://img.shields.io/npm/dm/cra-template-quickstart-redux)](https://www.npmjs.com/package/cra-template-quickstart-redux)
 
