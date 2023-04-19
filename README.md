@@ -1,6 +1,6 @@
 [![Build Status](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml)
 [![npm version](https://badge.fury.io/js/cra-template-quickstart-redux.svg)](https://www.npmjs.com/package/cra-template-quickstart-redux)
-[![npm](https://img.shields.io/npm/dm/cra-template-quickstart-redux)](https://www.npmjs.com/package/cra-template-quickstart-redux)
+[![npm](https://img.shields.io/npm/dm/cra-template-quickstart-redux)](http://npm-stats.org/#/cra-template-quickstart-redux)
 
 # Quickstart Redux Create React App template
 
