@@ -2,7 +2,7 @@
  * @see https://redux.js.org/understanding/history-and-design/middleware
  */
 export const promiseResolverMiddleware = store => next => action => {
-  if (typeof action?.payload?.then !== 'function') {
+  if (!(action.payload instanceof Promise)) {
     /** Pass action to next middleware and exit, if payload is not a Promise */
     return next(action);
   }
