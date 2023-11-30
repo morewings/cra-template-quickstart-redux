@@ -30,6 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
         id: nvm
@@ -37,11 +41,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
-          cache: 'yarn'
-      - name: Run yarn tasks
+          cache: 'pnpm'
+      - name: Run deploy tasks
         run: |
-          yarn install --frozen-lockfile
-          yarn build --silent
+          pnpm install
+          pnpm run build --silent
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact

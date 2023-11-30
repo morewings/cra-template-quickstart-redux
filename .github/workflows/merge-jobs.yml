@@ -14,6 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Cancel Workflow Action
         uses: styfle/cancel-workflow-action@0.10.1
         with:
@@ -25,10 +28,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
-          cache: 'yarn'
-      - name: Run yarn tasks
+          cache: 'pnpm'
+      - name: Run merge tasks
         run: |
-          yarn install --frozen-lockfile
+          pnpm install
       - name: Publish NPM package
         uses: JS-DevTools/npm-publish@v3
         with:
