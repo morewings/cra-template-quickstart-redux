@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@babel/runtime':
-    specifier: ^7.23.5
-    version: 7.23.5
+    specifier: ^7.23.9
+    version: 7.23.9
   '@testing-library/jest-dom':
     specifier: ^5.17.0
     version: 5.17.0
@@ -1443,8 +1443,8 @@ packages:
       regenerator-runtime: 0.13.11
     dev: false
 
-  /@babel/runtime@7.23.5:
-    resolution: {integrity: sha512-NdUTHcPe4C99WxPub+K9l9tK5/lV4UXIoaHSYgzco9BCyjKAAwzdBI+wWtYqHt7LJdbo74ZjRPJgzVweq1sz0w==}
+  /@babel/runtime@7.23.9:
+    resolution: {integrity: sha512-0CX6F+BI2s9dkUqr08KFrAIZgNFj75rdBU/DjCyYLIaV/quFjkk6T+EJ2LkZHyZTbEV4L5p97mNkUsHl2wLFAw==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
@@ -2115,7 +2115,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.22.13
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@types/aria-query': 4.2.0
       aria-query: 4.2.2
       chalk: 4.1.2
@@ -2129,7 +2129,7 @@ packages:
     engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
     dependencies:
       '@adobe/css-tools': 4.3.1
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@types/testing-library__jest-dom': 5.9.5
       aria-query: 5.0.0
       chalk: 3.0.0
@@ -2155,7 +2155,7 @@ packages:
       react-test-renderer:
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-error-boundary: 3.1.0(react@17.0.2)
@@ -2169,7 +2169,7 @@ packages:
       react: <18.0.0
       react-dom: <18.0.0
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@testing-library/dom': 8.0.0
       '@types/react-dom': 17.0.17
       react: 17.0.2
@@ -2947,7 +2947,7 @@ packages:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
     engines: {node: '>=6.0'}
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@babel/runtime-corejs3': 7.12.1
     dev: false
 
@@ -3164,7 +3164,7 @@ packages:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       cosmiconfig: 7.1.0
       resolve: 1.22.0
     dev: false
@@ -3265,7 +3265,7 @@ packages:
       '@babel/preset-env': 7.16.11(@babel/core@7.17.2)
       '@babel/preset-react': 7.16.7(@babel/core@7.17.2)
       '@babel/preset-typescript': 7.16.7(@babel/core@7.17.2)
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       babel-plugin-macros: 3.1.0
       babel-plugin-transform-react-remove-prop-types: 0.4.24
     transitivePeerDependencies:
@@ -4736,7 +4736,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       aria-query: 4.2.2
       array-includes: 3.1.4
       ast-types-flow: 0.0.7
@@ -8798,7 +8798,7 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       react: 17.0.2
     dev: false
 
@@ -8839,7 +8839,7 @@ packages:
       redux:
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@types/hoist-non-react-statics': 3.3.1
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
@@ -9076,7 +9076,7 @@ packages:
   /redux@4.2.1:
     resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
     dev: false
 
   /regenerate-unicode-properties@10.0.1:
@@ -9101,7 +9101,7 @@ packages:
   /regenerator-transform@0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
     dev: false
 
   /regex-parser@2.2.11:
@@ -10814,7 +10814,7 @@ packages:
       '@apideck/better-ajv-errors': 0.3.3(ajv@8.10.0)
       '@babel/core': 7.17.2
       '@babel/preset-env': 7.16.11(@babel/core@7.17.2)
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.9
       '@rollup/plugin-babel': 5.3.0(@babel/core@7.17.2)(rollup@2.67.2)
       '@rollup/plugin-node-resolve': 11.2.1(rollup@2.67.2)
       '@rollup/plugin-replace': 2.4.2(rollup@2.67.2)
