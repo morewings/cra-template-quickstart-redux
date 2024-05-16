@@ -1,6 +1,6 @@
-[![Build Status](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/cra-template-quickstart-redux/actions/workflows/merge-jobs.yml)
-[![npm version](https://badge.fury.io/js/cra-template-quickstart-redux.svg)](https://www.npmjs.com/package/cra-template-quickstart-redux)
-[![npm](https://img.shields.io/npm/dm/cra-template-quickstart-redux)](http://npm-stats.org/#/cra-template-quickstart-redux)
+# Deprecation notice
+
+**Create React App is not updated by its maintainers anymore. So this project can't be updated as well. I recommend to use [Next Redux template](https://github.com/morewings/ts-redux-next) which has all the same functionality plus new features.**
 
 # Quickstart Redux Create React App template
 
